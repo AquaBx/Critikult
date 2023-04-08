@@ -1,34 +1,13 @@
 <html>
-<style>
-    @font-face {
-        font-family: Rubik ;
-        src: url(Rubik-VariableFont_wght.ttf);
-    }
-    html {
-        background-color: rgb(24, 29, 35);
-        color:white;
-        font-family: Rubik;
-    }
-    
-    body {
-        padding:3em;
-    }
-
-    navbar{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-</style>
+<head>
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://css.gg/css?=|profile|search" rel="stylesheet">
+</head>
 
 <body>
-    <navbar>
-        <div><a><h1>Critikult</h1></a></div>
-        <div>
-            <a>Search</a>
-            <a>Profil</a>
-        </div>
-    </navbar>
+    
+    <?php include("./static/nav.php"); ?>
+
     <main>
     
         <div class="container">
