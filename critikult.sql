@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 14, 2023 at 02:21 PM
+-- Generation Time: Apr 14, 2023 at 04:04 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.2.5
 
@@ -47,7 +47,6 @@ INSERT INTO `article` (`id`, `titre`, `contenu`, `note`, `date_creation`, `date_
 (2, 'Cyberpunk 2077 : un jeu immersif qui a su se relever après un départ difficile', 'Sorti en décembre 2020, Cyberpunk 2077 a suscité beaucoup d\'attentes chez les joueurs. Avec son univers cyberpunk dystopique, ses personnages charismatiques et ses graphismes à couper le souffle, le jeu promettait d\'être un véritable chef-d\'œuvre du genre. Cependant, dès sa sortie, il a été victime de nombreux bugs, de problèmes de performance et de nombreux autres défauts qui ont entaché son expérience de jeu.\r\nLe jeu a été largement critiqué pour ces défauts et a été retiré de la vente sur plusieurs plateformes. Les joueurs ont été frustrés et déçus, et certains ont même demandé un remboursement. Malgré cela, les développeurs de CD Projekt Red n\'ont pas abandonné et ont travaillé sans relâche pour résoudre les problèmes et améliorer le jeu.\r\nDepuis sa sortie, Cyberpunk 2077 a bénéficié de plusieurs mises à jour importantes qui ont corrigé la plupart des problèmes rencontrés par les joueurs. Les développeurs ont également été transparents sur l\'état du jeu et ont présenté des excuses sincères pour les erreurs commises. Grâce à ces efforts, le jeu est devenu beaucoup plus stable et offre désormais une expérience de jeu immersive et captivante.\r\nMalgré son départ difficile, Cyberpunk 2077 est un jeu qui mérite vraiment l\'attention des joueurs. Son histoire complexe et ses personnages mémorables en font une expérience unique et passionnante. Les graphismes sont incroyables et les détails de l\'environnement sont époustouflants. De plus, la ville de Night City est vraiment impressionnante, avec ses nombreux quartiers et zones à explorer.\r\nAinsi, malgré un début chaotique, Cyberpunk 2077 mérite une note de 4/5. Les mises à jour ont permis de stabiliser le jeu et les joueurs peuvent maintenant profiter pleinement de l\'expérience de jeu qu\'il offre. Si vous êtes fan de science-fiction, de cyberpunk ou simplement de jeux vidéo, Cyberpunk 2077 est un titre à ne pas manquer.', 4, '2023-04-14 14:06:02', '2023-04-14 14:06:02', 7, 2),
 (3, 'League of Legends : un jeu de stratégie en équipe', 'League of Legends est un jeu de stratégie en équipe qui se joue en ligne avec plus de 140 champions différents. Le jeu se déroule dans un univers fantastique, où les joueurs s’affrontent dans des parties en 5 contre 5 sur différentes cartes. Le but du jeu est de détruire le bâtiment principal de l’équipe adverse, appelé le Nexus, tout en protégeant le sien. Pour cela, les joueurs doivent choisir leur champion parmi plusieurs catégories, comme les combattants, les tireurs, les mages ou les supports. Chaque champion possède des compétences uniques et un style de jeu propre. Les joueurs doivent coopérer avec leurs coéquipiers, gérer leurs ressources, améliorer leurs objets et leurs sorts, et prendre des décisions stratégiques pour remporter la victoire. Le jeu propose plusieurs modes de jeu, comme la Faille de l’invocateur, le mode le plus populaire, où les joueurs doivent détruire trois tours et un inhibiteur sur chaque voie avant d’atteindre le Nexus ennemi ; l’ARAM, un mode aléatoire où les joueurs s’affrontent sur une seule voie; ou Teamfight Tactics, un mode inspiré du genre auto-battler, où les joueurs doivent composer une équipe de champions et les placer sur un échiquier. \r\nLe jeu souffre cependant de nombreux problèmes qui gâchent l’expérience des joueurs. Le jeu est en effet très répétitif, avec des parties qui se ressemblent toutes et qui durent trop longtemps. Le jeu est également très déséquilibré, avec des champions trop puissants ou trop faibles, des objets trop chers ou trop efficaces, et des runes trop complexes ou trop simplistes. Le jeu est aussi très frustrant, avec une communauté toxique et négative, qui insulte, harcèle ou abandonne les parties sans raison. Le jeu est enfin très buggé, avec des problèmes de client, de serveur, de connexion ou de performance. De ce fait, nous ne pouvons pas donner la note maximale à ce jeu qui mérite, selon nous, quelques améliorations. ', 3, '2023-04-14 14:06:45', '2023-04-14 14:06:45', 7, 3),
 (4, 'Battlefield 1: un FPS immersif et spectaculaire', 'Battlefield 1 est un FPS qui se déroule pendant la Première Guerre mondiale. Le jeu propose une campagne solo qui suit les aventures de différents personnages à travers le monde, ainsi qu’un mode multijoueur qui oppose jusqu’à 64 joueurs sur des cartes variées. Le jeu se veut réaliste et immersif, avec des environnements destructibles, des conditions météorologiques changeantes et des véhicules historiques. Le jeu impressionne par sa qualité graphique, sonore et narrative, qui plonge le joueur dans l’horreur et la beauté de la guerre. Le jeu est également très dynamique et varié, avec des missions qui proposent des situations et des objectifs différents, et qui demandent au joueur de s’adapter et de coopérer avec ses alliés. \r\nLe jeu offre aussi un large choix de véhicules, qui permettent au joueur de prendre le contrôle de chars, d’avions, de bateaux ou de chevaux. Les véhicules ont chacun leurs caractéristiques, leurs armes et leurs places disponibles. Les véhicules peuvent être endommagés ou détruits par les tirs ennemis ou par l’environnement. Le joueur peut choisir son véhicule lors de son apparition, ou en trouver sur le champ de bataille. \r\nLe jeu offre aussi un mode multijoueur en ligne, nommé Battlefield 1 Révolution, qui inclut quatre extensions qui enrichissent le contenu du jeu avec de nouvelles cartes, de nouvelles armes et de nouveaux modes de jeu. Battlefield 1 est un FPS immersif et spectaculaire, qui mérite son succès et son statut de référence du genre FPS. ', 4, '2023-04-14 14:07:21', '2023-04-14 14:07:21', 7, 4),
-(5, 'League of Legends : un jeu de stratégie en équipe', 'League of Legends est un jeu de stratégie en équipe qui se joue en ligne avec plus de 140 champions différents. Le jeu se déroule dans un univers fantastique, où les joueurs s’affrontent dans des parties en 5 contre 5 sur différentes cartes. Le but du jeu est de détruire le bâtiment principal de l’équipe adverse, appelé le Nexus, tout en protégeant le sien. Pour cela, les joueurs doivent choisir leur champion parmi plusieurs catégories, comme les combattants, les tireurs, les mages ou les supports. Chaque champion possède des compétences uniques et un style de jeu propre. Les joueurs doivent coopérer avec leurs coéquipiers, gérer leurs ressources, améliorer leurs objets et leurs sorts, et prendre des décisions stratégiques pour remporter la victoire. Le jeu propose plusieurs modes de jeu, comme la Faille de l’invocateur, le mode le plus populaire, où les joueurs doivent détruire trois tours et un inhibiteur sur chaque voie avant d’atteindre le Nexus ennemi ; l’ARAM, un mode aléatoire où les joueurs s’affrontent sur une seule voie; ou Teamfight Tactics, un mode inspiré du genre auto-battler, où les joueurs doivent composer une équipe de champions et les placer sur un échiquier. \r\nLe jeu souffre cependant de nombreux problèmes qui gâchent l’expérience des joueurs. Le jeu est en effet très répétitif, avec des parties qui se ressemblent toutes et qui durent trop longtemps. Le jeu est également très déséquilibré, avec des champions trop puissants ou trop faibles, des objets trop chers ou trop efficaces, et des runes trop complexes ou trop simplistes. Le jeu est aussi très frustrant, avec une communauté toxique et négative, qui insulte, harcèle ou abandonne les parties sans raison. Le jeu est enfin très buggé, avec des problèmes de client, de serveur, de connexion ou de performance. De ce fait, nous ne pouvons pas donner la note maximale à ce jeu qui mérite, selon nous, quelques améliorations. ', 3, '2023-04-14 14:07:35', '2023-04-14 14:07:35', 7, 3),
 (6, 'FIFA 23 : Un jeu jeu pire que le précédent', 'FIFA 23, le dernier opus de la célèbre franchise de jeux vidéo de football, a été lancé il y a quelques mois et a déçu de nombreux joueurs. Bien qu\'il y ait eu des améliorations graphiques mineures, le jeu a été critiqué pour son manque d\'innovation et de nouveaux contenus.\r\nL\'une des plaintes les plus fréquentes concerne le mode carrière, qui n\'a pas été mis à jour de manière significative depuis plusieurs années. Les joueurs se plaignent que les choix de carrière sont limités, que les transferts ne sont pas réalistes et que l\'IA est toujours aussi basique. Il semble que EA Sports n\'ait pas pris la peine de mettre à jour ce mode de jeu crucial, préférant se concentrer sur les aspects plus rentables du jeu, tels que les microtransactions et les modes en ligne.\r\nDe plus, les joueurs ont également été déçus par le mode Ultimate Team, qui est depuis longtemps une source de controverse pour les microtransactions qui sont souvent nécessaires pour progresser dans le jeu. Malgré les promesses de changements pour cette année, les joueurs ont découvert que le mode était encore plus centré sur les microtransactions que jamais auparavant. De nombreux joueurs ont également signalé des problèmes de connexion en ligne, ce qui a nui à l\'expérience de jeu globale.\r\nEnfin, la jouabilité elle-même a également été critiquée. Les joueurs se plaignent que le jeu est devenu trop scripté, avec des actions préprogrammées qui limitent la créativité et le réalisme. Les gardiens de but sont également considérés comme peu réactifs, ce qui a conduit à des scores irréalistes et à une frustration accrue.\r\nDans l\'ensemble, FIFA 23 est un jeu qui a laissé de nombreux joueurs insatisfaits. Bien qu\'il y ait eu des améliorations graphiques mineures, le manque d\'innovation et de nouveaux contenus, ainsi que les problèmes de microtransactions, de connexion en ligne et de jouabilité limitent considérablement l\'expérience globale du joueur. Les fans de la franchise espèrent que les développeurs prendront en compte ces critiques et travailleront à améliorer le jeu dans les prochaines mises à jour et versions. ', 2, '2023-04-14 14:09:54', '2023-04-14 14:09:54', 7, 5),
 (7, 'Overwatch 2 : Les attentes élevées et la note moyenne. Que peut-on espérer de la suite ?', 'Overwatch 2, la suite très attendue du populaire jeu de tir en équipe, a finalement été annoncée par Blizzard Entertainment. Avec de nouvelles fonctionnalités, de nouveaux héros et des modes de jeu mis à jour, Overwatch 2 promet d\'être une expérience de jeu captivante pour les fans de longue date et les nouveaux venus.\r\nCependant, malgré les attentes élevées pour ce jeu, la note actuelle d\'Overwatch 2 est de 4 sur 5. Cette note peut sembler moyenne pour un jeu aussi populaire, mais il y a plusieurs raisons pour lesquelles cela pourrait être le cas.\r\nTout d\'abord, Overwatch 2 n\'est pas encore sorti et cette note pourrait être basée sur les informations et les démonstrations disponibles jusqu\'à présent. Les critiques peuvent être réservées jusqu\'à ce qu\'ils aient eu une chance de jouer au jeu complet.\r\nDe plus, Overwatch 2 est une suite d\'un jeu déjà très populaire, il peut être difficile de répondre aux attentes élevées des fans. Certains joueurs peuvent être déçus si le jeu ne répond pas à toutes leurs attentes, même s\'il est de haute qualité en général.\r\nEnfin, la note de 4/5 ne signifie pas nécessairement que le jeu est mauvais. De nombreux jeux notés 4/5 sont encore des expériences de jeu très agréables. La note peut simplement indiquer que le jeu n\'est pas parfait et qu\'il y a place à l\'amélioration.\r\nEn fin de compte, il est important de garder à l\'esprit que la note actuelle d\'Overwatch 2 n\'est qu\'une estimation et que la qualité du jeu peut être bien meilleure que cela. Les fans peuvent avoir hâte de voir les améliorations apportées par la suite, et voir si cela suffira à répondre à leurs attentes élevées.', 3, '2023-04-14 14:11:25', '2023-04-14 14:12:03', 7, 6),
 (8, 'F1 2022 : Un jeu de course qui manque de finesse', 'F1 2022 est le dernier jeu de course de la franchise F1 développé par Codemasters. Malheureusement, malgré une présentation visuelle impressionnante et une sélection de voitures et de pistes complète, le jeu souffre de plusieurs défauts qui limitent son attrait pour les fans de course.\r\nLa première chose qui frappe en jouant à F1 2022 est la qualité des graphismes et de l\'audio. Les voitures sont magnifiquement modélisées et les effets sonores de haute qualité ajoutent une touche de réalisme à l\'ensemble du jeu. Cependant, il est vite clair que la qualité visuelle et sonore ne suffit pas à compenser les défauts fondamentaux du gameplay.\r\nTout d\'abord, la jouabilité de F1 2022 est extrêmement difficile. Les voitures semblent manquer de précision et de réactivité, ce qui rend la conduite peu intuitive et difficile à maîtriser. Les collisions avec d\'autres voitures et avec les murs sont souvent frustrantes et il est difficile d\'identifier la cause des accidents. Le manque de sensibilité des commandes et des mouvements de la voiture peut également rendre les courses ennuyeuses, surtout lorsqu\'il est difficile de sortir de situations difficiles.\r\nDe plus, F1 2022 souffre d\'un manque de modes de jeu intéressants. Bien qu\'il y ait plusieurs modes disponibles, y compris un mode carrière, le manque de profondeur et de personnalisation est décevant. Les joueurs sont limités dans leurs choix et les options de personnalisation sont limitées. Les défis sont souvent répétitifs et le manque de diversité des pistes rend les courses peu stimulantes.\r\nEnfin, les options multijoueurs en ligne sont également médiocres. Les temps de chargement longs et les problèmes de connexion font que les courses en ligne peuvent être décevantes, même si le jeu dispose de fonctionnalités intéressantes telles que le mode \"Classement\" qui permet aux joueurs de rivaliser avec d\'autres joueurs en ligne.\r\nEn conclusion, bien que F1 2022 ait des qualités esthétiques impressionnantes, le jeu manque de finesse dans sa jouabilité, sa profondeur et ses modes de jeu. En raison de ces défauts, la note de ce jeu serait de 3/5. Les fans de la franchise peuvent être déçus par cette nouvelle version, mais les nouveaux joueurs peuvent y trouver un jeu amusant pour passer le temps.', 3, '2023-04-14 14:13:23', '2023-04-14 14:13:23', 7, 7),
@@ -82,8 +81,35 @@ CREATE TABLE `avis` (
 
 CREATE TABLE `categorie` (
   `id_categorie` int UNSIGNED NOT NULL,
-  `nom` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL
+  `nom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_as_cs;
+
+--
+-- Dumping data for table `categorie`
+--
+
+INSERT INTO `categorie` (`id_categorie`, `nom`) VALUES
+(1, 'Jeux d\'action'),
+(2, 'Jeux d\'aventure'),
+(3, 'Jeux de rôle (RPG)'),
+(4, 'Jeux de simulation'),
+(5, 'Jeux de sport'),
+(6, 'Jeux de course'),
+(7, 'Jeux de tir à la première personne (FPS)'),
+(8, 'Jeux de tir à la troisième personne (TPS)'),
+(9, 'Jeux de puzzle'),
+(10, 'Jeux de plateforme'),
+(11, 'Jeux de combat'),
+(12, 'Jeux musicaux'),
+(13, 'Jeux de survie'),
+(14, 'Jeux de gestion'),
+(15, 'Jeux de construction'),
+(16, 'Jeux de rythme'),
+(17, 'Jeux en réalité virtuelle (VR)'),
+(18, 'Jeux en ligne massivement multijoueur (MMO)'),
+(19, 'Jeux d\'horreur'),
+(20, 'Jeu de stratégie'),
+(21, 'Jeu de bataille en arène en ligne (MOBA)');
 
 -- --------------------------------------------------------
 
@@ -96,6 +122,47 @@ CREATE TABLE `est_categorise` (
   `id_jeu` int UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_as_cs;
 
+--
+-- Dumping data for table `est_categorise`
+--
+
+INSERT INTO `est_categorise` (`id_categorie`, `id_jeu`) VALUES
+(1, 1),
+(8, 1),
+(1, 2),
+(7, 2),
+(20, 3),
+(21, 3),
+(1, 4),
+(7, 4),
+(18, 4),
+(4, 5),
+(5, 5),
+(1, 6),
+(7, 6),
+(21, 6),
+(4, 7),
+(5, 7),
+(6, 7),
+(17, 7),
+(4, 9),
+(14, 9),
+(17, 9),
+(2, 10),
+(13, 10),
+(15, 10),
+(6, 11),
+(18, 11),
+(1, 12),
+(2, 12),
+(8, 12),
+(5, 13),
+(6, 14),
+(2, 15),
+(10, 15),
+(4, 16),
+(9, 16);
+
 -- --------------------------------------------------------
 
 --
@@ -106,6 +173,63 @@ CREATE TABLE `est_supporte` (
   `id_support` int UNSIGNED NOT NULL,
   `id_jeu` int UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_as_cs;
+
+--
+-- Dumping data for table `est_supporte`
+--
+
+INSERT INTO `est_supporte` (`id_support`, `id_jeu`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(1, 2),
+(3, 2),
+(4, 2),
+(6, 2),
+(7, 2),
+(1, 3),
+(1, 4),
+(3, 4),
+(4, 4),
+(6, 4),
+(7, 4),
+(1, 5),
+(3, 5),
+(4, 5),
+(6, 5),
+(7, 5),
+(9, 5),
+(1, 6),
+(4, 6),
+(7, 6),
+(9, 6),
+(1, 7),
+(3, 7),
+(4, 7),
+(6, 7),
+(7, 7),
+(1, 9),
+(1, 10),
+(2, 10),
+(3, 10),
+(4, 10),
+(5, 10),
+(6, 10),
+(7, 10),
+(9, 10),
+(1, 12),
+(3, 12),
+(4, 12),
+(6, 12),
+(7, 12),
+(1, 13),
+(1, 14),
+(8, 15),
+(1, 16);
 
 -- --------------------------------------------------------
 
@@ -166,6 +290,21 @@ CREATE TABLE `support` (
   `nom` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_as_cs;
 
+--
+-- Dumping data for table `support`
+--
+
+INSERT INTO `support` (`id_support`, `nom`) VALUES
+(1, 'PC'),
+(2, 'PS3'),
+(3, 'PS4'),
+(4, 'PS5'),
+(5, 'Xbox 360'),
+(6, 'Xbox One'),
+(7, 'Xbox series X/S'),
+(8, 'CD-i'),
+(9, 'Switch');
+
 -- --------------------------------------------------------
 
 --
@@ -212,6 +351,7 @@ INSERT INTO `user` (`id`, `login`, `password`, `privilege`, `nom`, `prenom`, `em
 ALTER TABLE `article`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
+  ADD UNIQUE KEY `id_jeu` (`id_jeu`),
   ADD KEY `fk_id_jeu_article` (`id_jeu`),
   ADD KEY `fk_id_redac_article` (`id_redacteur`);
 
@@ -278,13 +418,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id_categorie` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_categorie` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `images`
@@ -302,7 +442,7 @@ ALTER TABLE `jeu`
 -- AUTO_INCREMENT for table `support`
 --
 ALTER TABLE `support`
-  MODIFY `id_support` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_support` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
