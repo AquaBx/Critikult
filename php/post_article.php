@@ -9,7 +9,20 @@
 
         $id     = $_SESSION["id"];
 
-        create_article($mysqli,$Titre,$corps,$note,$id,$jeu);
+        
+        try{
+            $createArticle = create_article($mysqli,$Titre,$corps,$note,$id,$jeu);
+        }
+        catch(Exception $e){
+            $createArticle = 0;
+        }
+    
+        if ($createArticle == 1) {
+            modal("Votre article à bien été publié","success");
+        }
+        else{
+            modal("Une erreur s'est produite","error");
+        }
 
         closeDB($mysqli);
     }
