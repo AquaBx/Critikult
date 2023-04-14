@@ -13,9 +13,9 @@ $firstname = $_POST["firstname"];
 $email     = $_POST["email"];
 $birthday  = $_POST["birthday"];
 
-$createuser = writeDB($mysql, "INSERT into user (login,password,nom,prenom,email,birthday) VALUES ('$login','$password','$name','$firstname','$email','$birthday')");
+$createUser = create_account($mysqli,$login,$password,$name,$firstname,$email,$birthday);
 
-if ($createuser == 1) {
+if ($createUser == 1) {
     header("Location: ../login.php");
 }
 else{
