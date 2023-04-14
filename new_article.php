@@ -7,7 +7,7 @@
 <body>
     <?php 
         include("./static/nav.php"); 
-        include("../includes/config-bdd.php");
+        include("./includes/config-bdd.php");
         include("./functions-DB.php");
         include("./php/post_article.php");
         
