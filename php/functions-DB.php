@@ -56,14 +56,8 @@ function writeDB($mysqli, $sql_input)
 	//retourne le résultat de la requête
 
 	// $sql_input = mysqli_real_escape_string($mysqli,$sql_input);
-	try {
-		$result = mysqli_query($mysqli, $sql_input);
-		return $result;
-	}
-	catch(Exception $e){
-		return $e;
-	}
-	
+	$result = mysqli_query($mysqli, $sql_input);
+	return $result;
 
 }
 
