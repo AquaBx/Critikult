@@ -31,6 +31,9 @@ function AfficheAvis($mysqli,$id_jeu){
 
 function CategorieUser($mysqli,$id_user,$privilege){
 
+    $sql="UPDATE user SET user.privilege='$privilege' WHERE user.id='$id_user'";
+    return writeDB($mysqli, $sql);
+
 }
 
 function getUsers($mysqli){
@@ -38,7 +41,19 @@ function getUsers($mysqli){
     return readDB($mysqli, $sql );
 }
 
-function getUsers($mysqli){
-    $sql = "SELECT * FROM user";
-    return readDB($mysqli, $sql );
+//Fonction pour la création d'un compte 
+function create_account($mysqli,$login,$password,$name,$firstname,$email,$birthday){
+    $sql = "INSERT into user (login,password,nom,prenom,email,birthday) VALUES ('$login','$password','$name','$firstname','$email','$birthday')";
+    return writeDB($mysqli, $sql);
 }
+
+//Fonction permettant d'écrire un article 
+function create_article($mysqli,$Titre,$corps,$note,$id_redac,$id_jeu){
+    $sql = "INSERT into article (titre,contenu,note,date_modification,id_redacteur,id_jeu) VALUES ('$Titre','$corps','$note','','$id_redac','$id_jeu')";
+    return writeDB($mysqli, $sql);
+}
+
+// Fonction qui renvoie tous les jeux qui n'ont pas d'article
+
+?>
+
