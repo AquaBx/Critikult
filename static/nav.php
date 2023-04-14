@@ -4,7 +4,7 @@
     ?>
     <div><a href="./index.php"><h1>Critikult</h1></a></div>
     <div class="icons" >
-        <a ><i class="gg-search"></i></a>
+        <a href="./recherche.php"><i class="gg-search"></i></a>
 
         <div tabindex="-1" class="dropbox">
             <a><i class='gg-profile'></i></a>

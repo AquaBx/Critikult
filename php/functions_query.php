@@ -55,5 +55,24 @@ function create_article($mysqli,$Titre,$corps,$note,$id_redac,$id_jeu){
 
 function jeuxSansArticle($mysqli){
     $sql = "SELECT jeu.id,jeu.nom FROM article right JOIN jeu ON jeu.id=id_jeu WHERE id_jeu is NULL";
-    return readDB($mysqli, $sql );
+    return readDB($mysqli, $sql);
 }
+
+//Recherche par nom de jeu 
+function rechercheNom($mysqli,$texte){
+    $sql = "SELECT jeu.nom,article.titre,article.date_creation,jeu.couverture FROM jeu JOIN article ON jeu.id = article.id_jeu WHERE nom LIKE '%$texte%'";
+    return readDB($mysqli,$sql);
+}
+
+//Recuperation des noms des categories de jeu
+function nomCategories($mysqli){
+    $sql = "SELECT id_categorie,nom FROM categorie";
+    return readDB($mysqli,$sql);
+}
+
+//Recuperation des jeux fonction du/des categories
+function rechercheCategories($mysqli,$categories){
+    
+}
+?>
+
