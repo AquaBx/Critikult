@@ -1,31 +1,30 @@
 <?php
 
-include("../includes/config-bdd.php");
-include("./functions-DB.php");
+if (isset($_POST["login"])){
 
-$mysql = connectionDB();
+    $mysqli = connectionDB();
 
-$login     = $_POST["login"];
-$password  = hash("sha512",$_POST["password"]);
+    $login     = $_POST["login"];
+    $password  = hash("sha512",$_POST["password"]);
+    $getuser = readDB($mysqli, "SELECT id,login,password,privilege FROM user WHERE login='$login'");
 
-$getuser = readDB($mysql, "SELECT id,login,password,privilege FROM user WHERE login='$login'");
+    if (!isset($getuser[0])) {
+        modal("Utilisateur inconnu","error");
+    }
+    elseif ($getuser[0]["password"] === $password) {
+        session_start();
+        $_SESSION["login"] = $login;
+        $_SESSION["id"] = $getuser[0]["id"];
+        $_SESSION["privilege"] = $getuser[0]["privilege"];
 
+        header("Location: ./index.php");
+    }
+    else{
+        modal("mot de passe incorect","error");
+    }
 
-if (!isset($getuser[0])) {
-    header("Location: ../login.php");
-}
-elseif ($getuser[0]["password"] === $password) {
-    session_start();
-    $_SESSION["login"] = $login;
-    $_SESSION["id"] = $getuser[0]["id"];
-    $_SESSION["privilege"] = $getuser[0]["privilege"];
+    closeDB($mysqli);
 
-    header("Location: ../index.php");
-}
-else{
-    header("Location: ../login.php");
 }
 
 ?>
-
-
