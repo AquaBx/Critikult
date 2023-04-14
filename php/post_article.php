@@ -1,21 +1,17 @@
 <?php
-session_start();
-include("../includes/config-bdd.php");
-include("./functions-DB.php");
+    if (isset($_POST["Titre"])){
+        $mysql = connectionDB();
+        $id_jeu = $_POST["id"];
+        $Titre  = $_POST["Titre"];
+        $corps  = $_POST["corps"];
+        $note   = $_POST["note"];
+        $jeu    = $_POST["jeu"];
 
-$mysql = connectionDB();
+        $id     = $_SESSION["id"];
 
+        create_article($mysqli,$Titre,$corps,$note,$id,$id);
 
-$id_jeu = $_POST["id"];
-$Titre  = $_POST["Titre"];
-$corps  = $_POST["corps"];
-$note   = $_POST["note"];
-$jeu    = $_POST["jeu"];
-
-$id     = $_SESSION["id"];
-
-create_article($mysqli,$Titre,$corps,$note,$id,$id);
-
-closeDB($mysql);
+        closeDB($mysql);
+    }
 
 ?>

@@ -70,10 +70,8 @@ input {
     position:absolute;
     display: none;
     right:0;
-
     list-style-type: none;
     padding: 0;
-
     border: 3px solid rgba(220, 220, 220,1);
     border-radius: 0.5em;
     transition: 0.2s;
@@ -125,4 +123,5 @@ input {
 
 .modal.info {
     background-color: rgb(18, 157, 237);
+
 }

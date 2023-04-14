@@ -4,20 +4,20 @@
         <link href="https://css.gg/css?=|profile|search" rel="stylesheet">
     </head>
 
-    <body>
-        
-        <?php include("./static/nav.php"); ?>
+<body>
+    
+    <?php include("./static/nav.php"); ?>
 
-        <main>
-            <div class="container">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
+    <main>
+        <div class="container">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
 
-        </main>
-    </body>
+    </main>
+</body>
 </html>
