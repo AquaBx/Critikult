@@ -52,6 +52,7 @@ function create_article($mysqli,$Titre,$corps,$note,$id_redac,$id_jeu){
 }
 
 // Fonction qui renvoie tous les jeux qui n'ont pas d'article
+
 function jeuxSansArticle($mysqli){
     $sql = "SELECT jeu.id,jeu.nom FROM article right JOIN jeu ON jeu.id=id_jeu WHERE id_jeu is NULL";
     return readDB($mysqli, $sql );
