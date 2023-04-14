@@ -1,7 +1,7 @@
 <?php
     if (isset($_POST["Titre"])){
-        $mysql = connectionDB();
-        $id_jeu = $_POST["id"];
+        $mysqli = connectionDB();
+
         $Titre  = $_POST["Titre"];
         $corps  = $_POST["corps"];
         $note   = $_POST["note"];
@@ -9,9 +9,9 @@
 
         $id     = $_SESSION["id"];
 
-        create_article($mysqli,$Titre,$corps,$note,$id,$id);
+        create_article($mysqli,$Titre,$corps,$note,$id,$jeu);
 
-        closeDB($mysql);
+        closeDB($mysqli);
     }
 
 ?>
