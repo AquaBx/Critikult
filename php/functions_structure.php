@@ -45,3 +45,13 @@ function liste_users($users){
     } 
     echo "</div>";
 }
+
+function displayJeuxSansArticle($jeux){
+    foreach($jeux as $val){
+        $jeu = $val["jeu"];
+        $id  = $val["id"];
+        echo "<option value='$id'>$jeu</option>";
+    }
+}
+
+?>
