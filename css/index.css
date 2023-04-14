@@ -18,6 +18,10 @@ navbar{
     align-items: center;
 }
 
+navbar a {
+    color:white;
+}
+
 navbar > div.icons{
 
     display: flex;
@@ -54,4 +58,39 @@ input {
     width:100%;
     border-radius: 1rem ;
     padding: 1rem;
+}
+
+.dropbox{
+    position:relative;
+
+}
+.dropbox .hide{
+    overflow: hidden;
+    position:absolute;
+    display: none;
+    right:0;
+
+    list-style-type: none;
+    padding: 0;
+
+    border: 1px solid rgba(220, 220, 220,0.5);
+    border-radius: 0.2em;
+    transition: 0.2s;
+}
+
+.dropbox .hide > li {
+
+    transition: 0.2s;
+}
+.dropbox .hide > li > a{
+    padding: 10px 20px;
+    display: block;
+}
+.dropbox .hide > li:hover {
+    background-color: rgba(220, 220, 220,0.5);
+
+}
+
+.dropbox:focus-within .hide{
+    display: block;
 }

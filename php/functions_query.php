@@ -30,10 +30,8 @@ function AfficheAvis($mysqli,$id_jeu){
 //Fonction permettant de modifier les droits d'un utilisateur
 
 function CategorieUser($mysqli,$id_user,$privilege){
-
     $sql="UPDATE user SET user.privilege='$privilege' WHERE user.id='$id_user'";
     return writeDB($mysqli, $sql);
-
 }
 
 function getUsers($mysqli){
@@ -55,5 +53,7 @@ function create_article($mysqli,$Titre,$corps,$note,$id_redac,$id_jeu){
 
 // Fonction qui renvoie tous les jeux qui n'ont pas d'article
 
-?>
-
+function jeuxSansArticle($mysqli){
+    $sql = "SELECT jeu.id,jeu.nom FROM article right JOIN jeu ON jeu.id=id_jeu WHERE id_jeu is NULL";
+    return readDB($mysqli, $sql );
+}
