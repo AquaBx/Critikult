@@ -47,7 +47,7 @@ function create_account($mysqli,$login,$password,$name,$firstname,$email,$birthd
 
 //Fonction permettant d'écrire un article 
 function create_article($mysqli,$Titre,$corps,$note,$id_redac,$id_jeu){
-    $sql = "INSERT into article (titre,contenu,note,date_modification,id_redacteur,id_jeu) VALUES ('$Titre','$corps','$note','','$id_redac','$id_jeu')";
+    $sql = "INSERT into article (titre,contenu,note,id_redacteur,id_jeu) VALUES ('$Titre','$corps','$note','$id_redac','$id_jeu')";
     return writeDB($mysqli, $sql);
 }
 
