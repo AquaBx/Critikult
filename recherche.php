@@ -7,8 +7,15 @@
 <body>
     <?php 
     include("./static/nav.php");
-    include("../includes/config-bdd.php");
-    include("./functions-DB.php");
+    include("./includes/config-bdd.php");
+    include("./php/functions-DB.php");
+    include("./php/functions_structure.php");
+    include("./php/functions_query.php");
+    $mysql=connectionDB();
+
+    $categories = nomCategories($mysql);
+    
+    closeDB($mysql);
     ?>
     <main>
     
@@ -23,9 +30,9 @@
         <form method="POST" action="./recherche.php">
             <legend>Rechercher par catégorie du jeu</legend>
             <?php 
-            $mysql=connectionDB();
-            displayCategorie(nomCategories($mysql));
-            closeDB($mysql);
+            
+            displayCategorie($categories);
+            
             ?>
 
             <input type="submit">
