@@ -13,7 +13,6 @@ function display_articles($articles){
     echo "</div>";
 }
 
-
 function liste_users($users){
     echo "<table class='users'>";
     echo "<tr>
@@ -30,18 +29,17 @@ function liste_users($users){
         $checked2 = $user["privilege"] == "membre" ? "checked" : ""; 
         $checked3 = $user["privilege"] == "rédacteur" ? "checked" : ""; 
         $checked4 = $user["privilege"] == "administrateur" ? "checked" : ""; 
-        echo "<tr class='user'>";
 
-                echo "<td><img src='" . $user["pdp"] . "'></td>";
-                echo "<td>" . $user["login"] . "</td>";
-                echo "<td><input type='radio' $checked1 name='fonction' value='visiteur'></td>";
-                echo "<td><input type='radio' $checked2 name='fonction' value='membre'></td>";
-                echo "<td><input type='radio' $checked3 name='fonction' value='rédacteur'></td>";
-                echo "<td><input type='radio' $checked4 name='fonction' value='administrateur'></td>";
-                echo "<td><input type='submit' value='modiifier'></td>";
-                echo "<form>";
-            echo "</form>";
-        echo "</tr>";
+        echo "<tr class='user'><form>";
+
+            echo "<td><img src='" . $user["pdp"] . "'></td>";
+            echo "<td>" . $user["login"] . "</td>";
+            echo "<td><input type='radio' $checked1 name='fonction' value='visiteur'></td>";
+            echo "<td><input type='radio' $checked2 name='fonction' value='membre'></td>";
+            echo "<td><input type='radio' $checked3 name='fonction' value='rédacteur'></td>";
+            echo "<td><input type='radio' $checked4 name='fonction' value='administrateur'></td>";
+            echo "<td><input type='submit' value='modiifier'></td>";
+        echo "</form></tr>";
     } 
     echo "</div>";
 }
