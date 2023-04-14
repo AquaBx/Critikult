@@ -37,3 +37,8 @@ function getUsers($mysqli){
     $sql = "SELECT * FROM user";
     return readDB($mysqli, $sql );
 }
+
+function jeuxSansArticle($mysqli){
+    $sql = "SELECT jeu.id,jeu.nom FROM article right JOIN jeu ON jeu.id=id_jeu WHERE id_jeu is NULL";
+    return readDB($mysqli, $sql );
+}
