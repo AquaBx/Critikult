@@ -2,8 +2,13 @@
 
 //Menu  avec tous les articles
 function MenuArticles($mysqli,$var=0){
-    $sql = "SELECT jeu.nom,article.titre,article.date_creation,jeu.couverture FROM jeu JOIN article ON jeu.id = article.id_jeu LIMIT 5 OFFSET $var";
+    $sql = "SELECT article.id, jeu.nom as jeu,article.titre,article.date_creation,jeu.couverture FROM jeu JOIN article ON jeu.id = article.id_jeu ORDER BY article.date_creation DESC LIMIT 5 OFFSET $var";
     return readDB($mysqli, $sql );
+}
+
+function countArticles($mysqli){
+    $sql = "SELECT count(*) as nb FROM article";
+    return readDB($mysqli, $sql)[0]["nb"];
 }
 
 //Fonctions pour les infos de chaque article

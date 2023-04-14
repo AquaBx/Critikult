@@ -3,12 +3,13 @@
 function display_articles($articles){
     echo "<div class='articles'>";
     foreach ($articles as $article){
-        echo "<div class='article'>";
-            echo "<img src='" . $article["chemin"] . "'>";
-            echo "<h3>" . $article["title"] . "</h3>";
-            echo "<p>" . $article["synopsis"] . "</p>";
-            echo "<p>" . $article["date"] . "</p>";
-        echo "</div>";
+        $id = $article["id"];
+        echo "<a href='article.php?id=$id'><div class='article'>";
+            echo "<img src='." . $article["couverture"] . "'>";
+            echo "<h3>" . $article["titre"] . "</h3>";
+            echo "<p>" . $article["jeu"] . "</p>";
+            echo "<p>" . $article["date_creation"] . "</p>";
+        echo "</div></a>";
     } 
     echo "</div>";
 }
@@ -52,7 +53,6 @@ function displayJeuxSansArticle($jeux){
     }
 }
 
-
 function displayCategorie($categories){
     foreach($categories as $val){
         $categorie    = $val["id_categorie"];
@@ -65,8 +65,6 @@ function modal($message,$type=""){
     echo "<div class='modal $type'>";
         echo $message;
     echo "</div>";
-
-
 }
 
 ?>
