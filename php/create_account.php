@@ -22,6 +22,8 @@ else{
     header("Location: ../signup.php");
 }
 
+closeDB($mysql);
+
 ?>
 
 
