@@ -30,11 +30,12 @@ function AfficheAvis($mysqli,$id_jeu){
 //Fonction permettant de modifier les droits d'un utilisateur
 
 function CategorieUser($mysqli,$id_user,$privilege){
+
     $sql="UPDATE user SET user.privilege='$privilege' WHERE user.id='$id_user'";
     return writeDB($mysqli, $sql);
+
 }
 
-//Fonction permettant d'afficher tous les utilisateurs
 function getUsers($mysqli){
     $sql = "SELECT * FROM user";
     return readDB($mysqli, $sql );
