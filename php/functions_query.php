@@ -37,8 +37,3 @@ function getUsers($mysqli){
     $sql = "SELECT * FROM user";
     return readDB($mysqli, $sql );
 }
-
-function getUsers($mysqli){
-    $sql = "SELECT * FROM user";
-    return readDB($mysqli, $sql );
-}
