@@ -75,4 +75,3 @@ function rechercheCategories($mysqli,$categories){
     
 }
 ?>
-

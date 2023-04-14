@@ -10,6 +10,7 @@ html {
 
 body {
     padding:3em;
+    overflow-x: hidden;
 }
 
 navbar{
@@ -69,12 +70,10 @@ input {
     position:absolute;
     display: none;
     right:0;
-
     list-style-type: none;
     padding: 0;
-
-    border: 1px solid rgba(220, 220, 220,0.5);
-    border-radius: 0.2em;
+    border: 3px solid rgba(220, 220, 220,1);
+    border-radius: 0.5em;
     transition: 0.2s;
 }
 
@@ -93,4 +92,36 @@ input {
 
 .dropbox:focus-within .hide{
     display: block;
+}
+
+@keyframes modalappear {
+    from {transform: translateX(calc(100% + 1em));}
+    20% {transform: translateX(0px);}
+    80% {transform: translateX(0px);}
+    to {transform: translateX(calc(100% + 1em));}
+}
+
+
+
+.modal{
+    top:10em;
+    right:1em;
+    place-items: center;
+    position:absolute;
+    animation: modalappear 4s forwards ease;
+    padding: 1em;
+    background-color: rgb(210, 210, 210);
+}
+
+.modal.success {
+    background-color: rgb(32, 224, 42);
+}
+
+.modal.error {
+    background-color: rgb(255, 35, 35);
+}
+
+.modal.info {
+    background-color: rgb(18, 157, 237);
+
 }

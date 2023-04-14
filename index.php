@@ -1,8 +1,8 @@
 <html>
-<head>
-    <link rel="stylesheet" href="./css/index.css">
-    <link href="https://css.gg/css?=|profile|search" rel="stylesheet">
-</head>
+    <head>
+        <link rel="stylesheet" href="./css/index.css">
+        <link href="https://css.gg/css?=|profile|search" rel="stylesheet">
+    </head>
 
 <body>
     
@@ -20,6 +20,4 @@
 
     </main>
 </body>
-
-
 </html>

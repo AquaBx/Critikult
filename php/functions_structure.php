@@ -52,12 +52,21 @@ function displayJeuxSansArticle($jeux){
     }
 }
 
+
 function displayCategorie($categories){
     foreach($categories as $val){
         $categorie    = $val["id_categorie"];
         $id_categorie = $val["nom"];
         echo "<input type='checkbox' id='$id_categorie' name='$id_categorie' checked><label for='$id_categorie'>$categorie</label>";
     }
+}
+function modal($message,$type=""){
+
+    echo "<div class='modal $type'>";
+        echo $message;
+    echo "</div>";
+
+
 }
 
 ?>
