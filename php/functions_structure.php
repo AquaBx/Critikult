@@ -1,105 +1,47 @@
 <?php
 
-function display_imgs($imgs){
-    echo "<div class='flexpoke'>";
-    foreach ($imgs as $img){
-        echo "<img src='" . $img["chemin"] . "'>";
+function display_articles($articles){
+    echo "<div class='articles'>";
+    foreach ($articles as $article){
+        echo "<div class='article'>";
+            echo "<img src='" . $article["chemin"] . "'>";
+            echo "<h3>" . $article["title"] . "</h3>";
+            echo "<p>" . $article["synopsis"] . "</p>";
+            echo "<p>" . $article["date"] . "</p>";
+        echo "</div>";
     } 
     echo "</div>";
 }
 
-function display_infos($info_poke,$types){
-    echo "<span class='poketitle'>";
-    echo "<h2>" . $info_poke["nom"] . "";
-    echo " #" . $info_poke["numero"] . "</h2>";
-    foreach ($types as $type){
-        echo "<img src='./images/types/Miniature_Type_" . $type["libelle"] . "_EV.png'>" ;
-    }
-    echo "</span>";
-    echo "<p>" . $info_poke["description"] . "</p>" ;
-}
 
+function liste_users($users){
+    echo "<table class='users'>";
+    echo "<tr>
+    <td>Photo de profil</td>
+    <td>login</td>
+    <td>visiteur</td>
+    <td>membre</td>
+    <td>rédacteur</td>
+    <td>administrateur</td>
+    <td></td>
+    </tr>";
+    foreach ($users as $user){
+        $checked1 = $user["privilege"] == "visiteur" ? "checked" : ""; 
+        $checked2 = $user["privilege"] == "membre" ? "checked" : ""; 
+        $checked3 = $user["privilege"] == "rédacteur" ? "checked" : ""; 
+        $checked4 = $user["privilege"] == "administrateur" ? "checked" : ""; 
+        echo "<tr class='user'>";
 
-function display_capacities($capas){
-    echo "<table>";
-
-    echo "<thead><tr>";
-    echo "<td>Capacité</td>";
-    echo "<td>Power Point</td>";
-    echo "<td>Puissance</td>";
-    echo "<td>Précision</td>";
-    echo "<td>Type</td>";
-    echo "</tr></thead>";
-
-    foreach ($capas as $capa){
-        echo "<tr>";
-        echo "<td>" . $capa["libelle_capacite"] . "</td>";
-        echo "<td>" . $capa["pp_capacite"] . "</td>";
-        echo "<td>" . $capa["puissance_capacite"] . "</td>";
-        echo "<td>" . $capa["precision_capacite"] . "</td>";
-        echo "<td>" . $capa["libelle_type"] . "</td>";
+                echo "<td><img src='" . $user["pdp"] . "'></td>";
+                echo "<td>" . $user["login"] . "</td>";
+                echo "<td><input type='radio' $checked1 name='fonction' value='visiteur'></td>";
+                echo "<td><input type='radio' $checked2 name='fonction' value='membre'></td>";
+                echo "<td><input type='radio' $checked3 name='fonction' value='rédacteur'></td>";
+                echo "<td><input type='radio' $checked4 name='fonction' value='administrateur'></td>";
+                echo "<td><input type='submit' value='modiifier'></td>";
+                echo "<form>";
+            echo "</form>";
         echo "</tr>";
-    }
-    echo "</table>";
-}
-
-
-function display_evos($capas){
-    echo "<table>";
-
-    echo "<thead><tr>";
-    echo "<td>Nom Evolution</td>";
-    echo "<td>Niveau</td>";
-    echo "</tr></thead>";
-
-    foreach ($capas as $capa){
-        echo "<tr>";
-        echo "<td>";
-        echo "<img src='" . $capa["chemin"] . "'>";
-        echo $capa["nom"] . "</td>";
-        echo "<td>" . $capa["niveau"] . "</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-}
-
-function display_poke_dresseur($infos){
-    echo "<table>";
-
-    echo "<thead><tr>";
-    echo "<td>Vues</td>";
-    echo "<td>Capturés</td>";
-    echo "</tr></thead>";
-
-    foreach ($infos as $info){
-        echo "<tr>";
-        echo "<td>" . $info["nbVue"] . "</td>";
-        echo "<td>" . $info["nbAttrape"] . "</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-}
-
-function displayPokedex($pokedex) {
-
-    echo "<div class='gridpoke'>";
-    foreach($pokedex as $pokemon){
-
-        $class = array();
-        if (isset($pokemon["nbVue"]) && $pokemon["nbVue"]){
-            array_push($class,"vue");
-        }
-        if (isset($pokemon["nbAttrape"]) && $pokemon["nbAttrape"]){
-            array_push($class,"attrape");
-        }
-
-        $classes = implode(" ", $class);
-
-        echo "<div class='$classes'>";
-        echo "<a href='pokemon.php?pokemon=".$pokemon["id_pokemon"]."'><img alt='". $pokemon["nom"] ."' src='". $pokemon["chemin"] ."'></a>";
-        echo "<h3>" . $pokemon["nom"] ."</h3>";
-        echo "<p>#" . $pokemon["numero"] ."</p>";
-        echo "</div>";
-    }
+    } 
     echo "</div>";
 }
