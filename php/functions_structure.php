@@ -52,4 +52,12 @@ function displayJeuxSansArticle($jeux){
     }
 }
 
+function modal($message,$type=""){
+
+    echo "<div class='modal $type'>";
+        echo $message;
+    echo "</div>";
+
+}
+
 ?>
