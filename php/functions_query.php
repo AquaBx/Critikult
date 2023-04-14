@@ -47,8 +47,9 @@ function create_account($mysqli,$login,$password,$name,$firstname,$email,$birthd
 
 //Fonction permettant d'écrire un article 
 function create_article($mysqli,$Titre,$corps,$note,$id_redac,$id_jeu){
-    $sql = "INSERT into article (titre,contenu,note,id_redacteur,id_jeu) VALUES ('$Titre','$corps','$note','$id_redac','$id_jeu')";
-    return writeDB($mysqli, $sql);
+    $sql = "INSERT into article (titre,contenu,note,id_redacteur,id_jeu) VALUES (?,?,?,?,?)";
+    $list=[$Titre,$corps,$note,$id_redac,$id_jeu];
+    return writePrepare($mysqli, $sql,$list);
 }
 
 // Fonction qui renvoie tous les jeux qui n'ont pas d'article

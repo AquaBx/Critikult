@@ -61,4 +61,22 @@ function writeDB($mysqli, $sql_input)
 
 }
 
+function readPrepare($mysqli,$sql_input,$list)
+{
+	$result = mysqli_execute_query($mysqli, $sql_input,$list);
+
+	if ($result == false || mysqli_num_rows($result) == 0) {
+		return array();
+	}
+	else{
+		return mysqli_fetch_all($result, MYSQLI_ASSOC);
+	}
+}
+
+function writePrepare($mysqli, $sql_input,$list)
+{
+	$result = mysqli_execute_query($mysqli, $sql_input,$list);
+	return $result;
+}
+
 ?>
