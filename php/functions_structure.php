@@ -46,7 +46,7 @@ function liste_users($users){
 
 function displayJeuxSansArticle($jeux){
     foreach($jeux as $val){
-        $jeu = $val["jeu"];
+        $jeu = $val["nom"];
         $id  = $val["id"];
         echo "<option value='$id'>$jeu</option>";
     }
