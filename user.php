@@ -1,14 +1,14 @@
 <?php
+    session_start();
+    include("./includes/config-bdd.php");
+    include("./php/functions-DB.php");
+    include("./php/functions_query.php");
+    include("./php/functions_structure.php");
 
-include("./includes/config-bdd.php");
-include("./php/functions-DB.php");
-include("./php/functions_query.php");
-include("./php/functions_structure.php");
+    $mysqli = connectionDB();
 
-$mysqli = connectionDB();
-
-$users = jeuxSansArticle($mysqli);
-print_r($users);
-closeDB($mysqli);
+    $users = jeuxSansArticle($mysqli);
+    print_r($users);
+    closeDB($mysqli);
 
 ?>

@@ -4,12 +4,12 @@ function display_articles($articles){
     echo "<div class='articles'>";
     foreach ($articles as $article){
         $id = $article["id"];
-        echo "<a href='article.php?id=$id'><div class='article'>";
+        echo "<a class='article' href='article.php?id=$id'>";
             echo "<img src='." . $article["couverture"] . "'>";
-            echo "<h3>" . $article["titre"] . "</h3>";
-            echo "<p>" . $article["jeu"] . "</p>";
-            echo "<p>" . $article["date_creation"] . "</p>";
-        echo "</div></a>";
+            echo "<h2>" . $article["jeu"] . "</h2>";
+            echo "<p class='accroche'>" . $article["titre"] . "</p>";
+            echo "<p class='date'>" . $article["date_creation"] . "</p>";
+        echo "</a>";
     } 
     echo "</div>";
 }

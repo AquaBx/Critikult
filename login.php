@@ -1,12 +1,15 @@
-<html>
-
-    <?php
-
+<?php
+    session_start();
+    
     include("./includes/config-bdd.php");
     include("./php/functions-DB.php");
+    include("./php/functions_query.php");
     include("./php/functions_structure.php");
+    
+    include("./php/login.php");
+?>
+<html>
 
-    ?>
 
     <head>
         <link rel="stylesheet" href="./css/index.css">
@@ -15,7 +18,6 @@
 
     <body>
         <?php include("./static/nav.php"); ?>
-        <?php include("./php/login.php"); ?>
         <main>
         
             <form method="POST" action="">

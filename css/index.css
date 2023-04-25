@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    padding:3em;
+    padding:0.5em 3em 0em 3em;
     overflow-x: hidden;
 }
 
@@ -30,6 +30,15 @@ navbar > div.icons{
     align-items: center;
     transform: scale(1.2);
 
+}
+
+navbar h1{
+    font-size: 2.5em;
+}
+
+.page{
+    margin: 0;
+    padding: 0.2em 0 1em;
 }
 
 form {
@@ -127,6 +136,7 @@ input {
 }
 
 .articles{
+
     display: grid;
     grid-template-rows:repeat(2,1fr) ;
     grid-template-columns:repeat(3,1fr) ;
@@ -134,6 +144,8 @@ input {
 }
 
 .article {
+
+    color:white;
     border-radius: 1rem;
     position: relative;
     height: 20em;
@@ -143,23 +155,67 @@ input {
 .articles a:nth-child(1) {
     grid-column:1;
     grid-row: 1;
+    --i:1;
 }
+
 .articles a:nth-child(2) {
     grid-column:2;
     grid-row: 1;
+    --i:2;
 }
+
 .articles a:nth-child(3) {
     grid-column:3;
     grid-row: 1;
+    --i:3;
 }
+
 .articles a:nth-child(4) {
     grid-column:1;
     grid-row: 2;
+    --i:4;
 }
+
 .articles a:nth-child(5) {
     grid-column:2;
     grid-row: 2;
+    --i:5;
 }
+
+.articles a:nth-child(6) {
+    grid-column:3;
+    grid-row: 2;
+    --i:6;
+}
+
+
+@keyframes gameappear {
+    from {transform: translateY(-1.5em);opacity: 0;}
+    to {transform: translateY(0px);opacity: 1;}
+}
+
+.articles a{
+    transform:translateY(-1.5em);
+    opacity: 0;
+    animation: gameappear 1s forwards calc(var(--i) * 0.1s) ;
+    text-decoration: none;
+
+    position: relative;
+}
+
+.articles a h2{
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+}
+
+.articles a .accroche{
+    margin:1em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+}
+
 
 .articles img{
     width: 100%;
@@ -167,4 +223,25 @@ input {
     object-fit: cover;
     position: absolute;
     z-index: -1;
+}
+
+.navpages {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em;
+
+}
+
+.navpages a {
+    color:white;
+    text-decoration: none;
+    transition: 0.2s;
+
+}
+
+.navpages a:hover {
+    color:orange;
+
 }

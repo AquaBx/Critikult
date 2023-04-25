@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+    
+    include("./includes/config-bdd.php");
+    include("./php/functions-DB.php");
+    include("./php/functions_query.php");
+    include("./php/functions_structure.php");
+
+?>
+
 <html>
     <head>
         <link rel="stylesheet" href="./css/index.css">
@@ -5,36 +15,36 @@
     </head>
 
 <body>
-    
-    <?php 
-    include("./static/nav.php"); 
-    include("./includes/config-bdd.php");
-    include("./php/functions-DB.php");
-    include("./php/functions_structure.php");
-    include("./php/functions_query.php");
-    $mysqli=connectionDB();
-    ?>
-
+    <?php include("./static/nav.php");  ?>
     <main>
         <?php
+            $mysqli=connectionDB();
+
             $count = countArticles($mysqli);
-            $nb_page=ceil($count/5);
-            for ($i=1;$i<=$nb_page;$i++){
-                echo "<a href='?page=$i'>$i</a>";
-            }
+
+            $nb_articles = 6;
+            $nb_page=ceil($count/$nb_articles);
 
             if (isset($_GET["page"])){
-               $offset=5*((int)$_GET["page"]-1); 
+               $page = (int)$_GET["page"];
             }
             else{
-                $offset=0;
+                $page = 1;
             }
-            $articles = MenuArticles($mysqli,$offset);
+
+            echo "<h2 class='page'>Page $page</h2>";
+
+            $offset = $nb_articles*($page-1);
+
+            $articles = MenuArticles($mysqli,$nb_articles,$offset);
             display_articles($articles);
             closeDB($mysqli);
+
+            echo "<div class='navpages'>";
             for ($i=1;$i<=$nb_page;$i++){
                 echo "<a href='?page=$i'>$i</a>";
             }
+            echo "</div>";
         ?>
     </main>
 </body>

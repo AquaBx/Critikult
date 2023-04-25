@@ -13,7 +13,7 @@ if (isset($_POST["login"])){
         modal("Utilisateur inconnu","error");
     }
     elseif ($getuser[0]["password"] === $password) {
-        session_start();
+
         $_SESSION["login"] = $login;
         $_SESSION["id"] = $getuser[0]["id"];
         $_SESSION["privilege"] = $getuser[0]["privilege"];

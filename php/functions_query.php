@@ -1,8 +1,8 @@
 <?php
 
 //Menu  avec tous les articles
-function MenuArticles($mysqli,$var=0){
-    $sql = "SELECT article.id, jeu.nom as jeu,article.titre,article.date_creation,jeu.couverture FROM jeu JOIN article ON jeu.id = article.id_jeu ORDER BY article.date_creation DESC LIMIT 5 OFFSET $var";
+function MenuArticles($mysqli,$nombres,$offset=0){
+    $sql = "SELECT article.id, jeu.nom as jeu,article.titre,article.date_creation,jeu.couverture FROM jeu JOIN article ON jeu.id = article.id_jeu ORDER BY article.date_creation DESC LIMIT $nombres OFFSET $offset";
     return readDB($mysqli, $sql );
 }
 

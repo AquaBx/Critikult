@@ -1,3 +1,16 @@
+<?php 
+    session_start();
+    
+    include("./includes/config-bdd.php");
+    include("./php/functions-DB.php");
+    include("./php/functions_query.php");
+    include("./php/functions_structure.php");
+
+    $mysql=connectionDB();
+    $categories = nomCategories($mysql);
+    closeDB($mysql);
+?>
+
 <html>
 <head>
     <link rel="stylesheet" href="./css/index.css">
@@ -5,20 +18,9 @@
 </head>
 
 <body>
-    <?php 
-    include("./static/nav.php");
-    include("./includes/config-bdd.php");
-    include("./php/functions-DB.php");
-    include("./php/functions_structure.php");
-    include("./php/functions_query.php");
-    $mysql=connectionDB();
+    <?php include("./static/nav.php"); ?>
 
-    $categories = nomCategories($mysql);
-    
-    closeDB($mysql);
-    ?>
     <main>
-    
         <form method="POST" action="./recherche.php">
 
             <legend>Rechercher par nom du jeu</legend>

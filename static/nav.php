@@ -1,6 +1,6 @@
 <navbar>
     <?php
-    session_start();
+
     ?>
     <div><a href="./index.php"><h1>Critikult</h1></a></div>
     <div class="icons" >

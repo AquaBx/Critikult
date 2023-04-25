@@ -1,19 +1,24 @@
+<?php
+
+    session_start();
+        
+    include("./includes/config-bdd.php");
+    include("./php/functions-DB.php");
+    include("./php/functions_query.php");
+    include("./php/functions_structure.php");
+    
+    include("./php/signup.php");
+
+?>
+
 <html>
     <head>
         <link rel="stylesheet" href="./css/index.css">
         <link href="https://css.gg/css?=|profile|search" rel="stylesheet">
     </head>
-    <?php
 
-    include("./includes/config-bdd.php");
-    include("./php/functions-DB.php");
-    include("./php/functions_query.php");
-    include("./php/functions_structure.php");
-
-    ?>
     <body>
         <?php include("./static/nav.php"); ?>
-        <?php include("./php/signup.php"); ?>
         <main>
         
             <form method="POST" action="">
