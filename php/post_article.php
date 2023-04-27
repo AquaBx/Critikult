@@ -1,5 +1,12 @@
 <?php
-    if (isset($_POST["Titre"])){
+    if (isset($_POST["Titre"])){    
+        
+        session_start();
+
+        include("../includes/config-bdd.php");
+        include("../php/functions-DB.php");
+        include("../php/functions_query.php");
+    
         $mysqli = connectionDB();
 
         $Titre  = $_POST["Titre"];
@@ -8,7 +15,6 @@
         $jeu    = $_POST["jeu"];
 
         $id     = $_SESSION["id"];
-
         
         try{
             $createArticle = create_article($mysqli,$Titre,$corps,$note,$id,$jeu);
@@ -17,14 +23,21 @@
             $createArticle = 0;
         }
     
-        if ($createArticle == 1) {
-            modal("Votre article à bien été publié","success");
+        if ($createUser == 1) {
+            $_SESSION["form_msg"] = "Votre article a bien été publié";
+            $_SESSION["form_result"] = "success";
         }
         else{
-            modal("Une erreur s'est produite","error");
+            $_SESSION["form_msg"] = "Une erreur s'est produite";
+            $_SESSION["form_result"] = "error";
         }
 
         closeDB($mysqli);
+        header("Location: " . $_SERVER["HTTP_REFERER"]);
     }
+    else{
+        header("Location: ../index.php");
+    }
+
 
 ?>

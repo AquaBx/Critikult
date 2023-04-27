@@ -6,8 +6,6 @@
     include("./php/functions-DB.php");
     include("./php/functions_query.php");
     include("./php/functions_structure.php");
-    
-    include("./php/signup.php");
 
 ?>
 
@@ -19,9 +17,10 @@
 
     <body>
         <?php include("./static/nav.php"); ?>
+        <?php include("./static/modal.php");  ?>
         <main>
         
-            <form method="POST" action="">
+            <form method="POST" action="./php/signup.php">
             
                     <legend>Création d'un compte</legend>
 

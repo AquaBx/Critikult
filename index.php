@@ -16,6 +16,7 @@
 
 <body>
     <?php include("./static/nav.php");  ?>
+    <?php include("./static/modal.php");  ?>
     <main>
         <?php
             $mysqli=connectionDB();

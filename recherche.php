@@ -19,6 +19,7 @@
 
 <body>
     <?php include("./static/nav.php"); ?>
+    <?php include("./static/modal.php");  ?>
 
     <main>
         <form method="POST" action="./recherche.php">

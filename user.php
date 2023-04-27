@@ -7,8 +7,18 @@
 
     $mysqli = connectionDB();
 
-    $users = jeuxSansArticle($mysqli);
-    print_r($users);
+    $user = getUser($mysqli,$_GET["id"])[0];
+
+
+
+    $pdp = $user['pdp'];
+    $name = $user['prenom'] . " " . $user['nom'] ;
+    $privi = $user['privilege'];
+
+    echo "<img src='$pdp'>";
+    echo "<h2>$name</h2>";
+    echo "<h5>$privi</h5>";
+
     closeDB($mysqli);
 
 ?>

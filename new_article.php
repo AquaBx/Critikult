@@ -23,9 +23,10 @@
     <body>
 
         <?php include("./static/nav.php");?>
-
+        <?php include("./static/modal.php");  ?>
+        
         <main>
-            <form method="POST" action="./new_article.php">
+            <form method="POST" action="./php/post_article.php">
             
                 <legend>Création d'un article</legend>
 
