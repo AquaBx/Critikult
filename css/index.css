@@ -3,6 +3,21 @@
     src: url(Rubik-VariableFont_wght.ttf);
 }
 
+
+
+
+:root{
+    --main:hsl(222, 25%, 90%);
+    --secondary:hsl(216, 17%, 94%);
+    --secondary-t:hsla(216, 17%, 94%, 0.7);
+    --action:rgb(139, 213, 232);
+    --special:rgb(0, 165, 207);
+    --success:rgb(59, 245, 34);
+    --error:rgb(250, 69, 23);
+    --text:black;
+    --text-reversed: white;
+}
+
 @media (prefers-color-scheme: dark){
 
     :root{
@@ -18,20 +33,6 @@
     }
 
 }
-
-
-:root{
-    --main:hsl(222, 25%, 90%);
-    --secondary:hsl(216, 17%, 94%);
-    --secondary-t:hsla(216, 17%, 94%, 0.7);
-    --action:rgb(139, 213, 232);
-    --special:rgb(0, 165, 207);
-    --success:rgb(59, 245, 34);
-    --error:rgb(250, 69, 23);
-    --text:black;
-    --text-reversed: white;
-}
-
 
 html {
     background-color: var(--main);
