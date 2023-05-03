@@ -3,17 +3,45 @@
         
     ?>
     <div><a href="./index.php"><h1>Critikult</h1></a></div>
+    
     <div class="icons" >
-        <a href="./recherche.php"><i class="gg-search"></i></a>
+
+        
+        <a href="./recherche.php"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+        <?php if (isset($_SESSION["privilege"]) ) { if ( $_SESSION["privilege"]==="rédacteur" || $_SESSION["privilege"]==="administrateur"){ ?>
+        
+        <div tabindex="-1" class="dropbox">
+            <a href='#'><i class='fa-solid fa-toolbox'></i></a>
+            <ul class="hide">
+
+                <?php
+
+                echo "<li><a href='./new_article.php'>Créer un article</a></li>";
+                echo "<li><a href='./modif_article.php'>Modifier un article</a></li>";
+                echo "<li><a href='./new_game.php'>Ajouter un jeu</a></li>";
+                echo "<li><a href='./modif_game.php'>Modifier un jeu</a></li>";
+
+                if ($_SESSION["privilege"]==="administrateur"){
+                    echo "<li><a href='./admin.php'>Administration</a></li>";
+                }
+                ?>
+                
+            </ul>
+        </div>
+        <?php }} ?>
 
         <div tabindex="-1" class="dropbox">
-            <a><i class='gg-profile'></i></a>
+            <a href='#'><i class="fa-regular fa-circle-user"></i></a>
             <ul class="hide">
 
                 <?php
                 if (isset($_SESSION["privilege"])){
-                    $id = $_SESSION["id"];
-                    echo "<li><a href='./user.php?id=$id'>Profil</a></li>";
+                    $log = $_SESSION["login"];
+
+
+                    echo "<li><a href='./profil.php?l=$log'>Profil</a></li>";
+                    echo "<li><a href='./modif_profil.php'>Paramètres</a></li>";
                     echo "<li><a href='./php/logout.php'>Déconnection</a></li>";
                 }
                 else{
@@ -23,6 +51,8 @@
                 ?>
                 
             </ul>
+
+
         </div>
     </div>
 </navbar>

@@ -6,40 +6,50 @@
     include("./php/functions_query.php");
     include("./php/functions_structure.php");
 
-    $mysql=connectionDB();
-    $categories = nomCategories($mysql);
-    closeDB($mysql);
+    $mysqli=connectionDB();
+    $categories = getCategories($mysqli);
+
+
+    closeDB($mysqli);
 ?>
 
 <html>
 <head>
-    <link rel="stylesheet" href="./css/index.css">
-    <link href="https://css.gg/css?=|profile|search" rel="stylesheet">
-</head>
+        <link rel="stylesheet" href="./css/index.css">
+        
+        <link rel="stylesheet" href="./fontawesome/css/solid.min.css">
+        <link rel="stylesheet" href="./fontawesome/css/fontawesome.min.css">
+        <link rel="stylesheet" href="./fontawesome/css/regular.min.css">
+        <link rel="stylesheet" href="./fontawesome/css/brands.min.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+    </head>
 
 <body>
     <?php include("./static/nav.php"); ?>
     <?php include("./static/modal.php");  ?>
 
     <main>
-        <form method="POST" action="./recherche.php">
 
-            <legend>Rechercher par nom du jeu</legend>
-            <input id="titre" name="titre" required>
+        <h2>Recherche</h2>
+        <form method="GET" action="./index.php">
 
-            <input type="submit">
-        </form>
+            <label for="name">Nom du jeu</label>
+            <input id="name" name="name">
 
-        <form method="POST" action="./recherche.php">
-            <legend>Rechercher par catégorie du jeu</legend>
+            <label for="categorie">Catégorie du jeu</label>
+            <select id='categorie' name="categorie">
+                <option value=''>
             <?php 
-            
-            displayCategorie($categories);
+            OptionsCategories($categories);
             
             ?>
+            </select>
 
             <input type="submit">
         </form>
+
 
 
     </main>

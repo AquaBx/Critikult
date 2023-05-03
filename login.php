@@ -5,13 +5,24 @@
     include("./php/functions-DB.php");
     include("./php/functions_query.php");
     include("./php/functions_structure.php");
+
+    if(isset($_SESSION["id"])){
+        header("Location: index.php");
+        exit();
+    }
 ?>
 <html>
 
 
     <head>
         <link rel="stylesheet" href="./css/index.css">
-        <link href="https://css.gg/css?=|profile|search" rel="stylesheet">
+
+        <link rel="stylesheet" href="./fontawesome/css/solid.min.css">
+        <link rel="stylesheet" href="./fontawesome/css/fontawesome.min.css">
+        <link rel="stylesheet" href="./fontawesome/css/regular.min.css">
+        <link rel="stylesheet" href="./fontawesome/css/brands.min.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
 
     <body>
@@ -19,9 +30,11 @@
         <?php include("./static/modal.php");  ?>
         <main>
         
+            <h2>Connection</h2>
+
             <form method="POST" action="./php/login.php">
             
-                    <legend>Connexion</legend>
+                    
 
                     <label for="login">Nom d'utilisateur</label>
                     <input id="login" name="login" required>

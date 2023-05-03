@@ -1,7 +1,12 @@
 <?php
-
-if (isset($_POST["login"])){
     session_start();
+
+    if ( ! str_starts_with( $_SERVER["HTTP_REFERER"], $_SERVER["HTTP_ORIGIN"] )){
+        header("Location: ../index.php");
+    }
+    elseif ( ! str_contains( $_SERVER["HTTP_REFERER"], "login.php" )){
+        header("Location: ../index.php");
+    }
 
     include("../includes/config-bdd.php");
     include("../php/functions-DB.php");
@@ -11,9 +16,7 @@ if (isset($_POST["login"])){
 
     $login     = $_POST["login"];
     $password  = hash("sha512",$_POST["password"]);
-    $getuser = readDB($mysqli, "SELECT id,login,password,privilege FROM user WHERE login='$login'");
-
-
+    $getuser = getUser($mysqli,$login);
 
     if (!isset($getuser[0])) {
         $_SESSION["form_msg"] = "Utilisateur inconnu";
@@ -30,6 +33,8 @@ if (isset($_POST["login"])){
         $_SESSION["form_msg"] = "Bienvenue";
         $_SESSION["form_result"] = "success";
 
+        connect($mysqli,$getuser[0]["id"]);
+
         header("Location: ../index.php");
     }
     else{
@@ -39,13 +44,5 @@ if (isset($_POST["login"])){
     }
 
     closeDB($mysqli);
-
-}
-else{
-    header("Location: ../index.php");
-}
-
-
-
 
 ?>

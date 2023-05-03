@@ -1,64 +1,188 @@
 <?php
+date_default_timezone_set('Etc/GMT+2');
 
 //Menu  avec tous les articles
-function MenuArticles($mysqli,$nombres,$offset=0){
-    $sql = "SELECT article.id, jeu.nom as jeu,article.titre,article.date_creation,jeu.couverture FROM jeu JOIN article ON jeu.id = article.id_jeu ORDER BY article.date_creation DESC LIMIT $nombres OFFSET $offset";
-    return readDB($mysqli, $sql );
+function MenuArticles($mysqli,$nombres,$offset,$categorie,$name){
+
+    $sql = "SELECT DISTINCT article.id, jeu.nom as jeu,article.titre,article.date_creation,jeu.couverture FROM jeu 
+    JOIN article ON jeu.id = article.id_jeu 
+
+    JOIN est_categorise ON jeu.id = est_categorise.id_jeu 
+    JOIN categorie ON est_categorise.id_categorie = categorie.id_categorie
+
+    WHERE jeu.nom LIKE ? AND categorie.id_categorie LIKE ?
+    ORDER BY article.date_creation DESC LIMIT ? OFFSET ?;
+    ";
+
+    if ($categorie == "") { $categorie = "%";}
+
+    $list = ['%'.$name.'%',$categorie,$nombres,$offset];
+    return readPrepare($mysqli, $sql, $list  );
 }
 
-function countArticles($mysqli){
-    $sql = "SELECT count(*) as nb FROM article";
-    return readDB($mysqli, $sql)[0]["nb"];
+function countArticles($mysqli,$categorie,$name){
+
+    $sql = "SELECT count(*) as nb FROM ( 
+        SELECT DISTINCT article.id FROM jeu 
+        JOIN article ON jeu.id = article.id_jeu 
+
+        JOIN est_categorise ON jeu.id = est_categorise.id_jeu 
+        JOIN categorie ON est_categorise.id_categorie = categorie.id_categorie
+
+        WHERE jeu.nom LIKE ? AND categorie.id_categorie LIKE ?
+    ) AS subquery
+    ";
+
+    if ($categorie == "") { $categorie = "%";}
+
+
+    $list = ['%'.$name.'%',$categorie];
+
+    return readPrepare($mysqli, $sql, $list  )[0]["nb"];
 }
 
 //Fonctions pour les infos de chaque article
-function InfosArticle($mysqli,$id_jeu){
-    $sql="SELECT * FROM jeu JOIN article ON jeu.id = article.id_jeu WHERE jeu.id=?";
-    $list = [$id_jeu];
+function InfosArticle($mysqli,$id_art){
+    $sql="SELECT * FROM jeu JOIN article ON jeu.id = article.id_jeu WHERE article.id=?";
+    $list = [$id_art];
     return readPrepare($mysqli, $sql, $list );
 }
 
-function CatgorieJeu($mysqli,$id_jeu){
-    $sql="SELECT categorie.nom FROM est_categorise JOIN categorie ON id_categorie WHERE est_categorise.id_jeu=?";
+function CategorieJeu($mysqli,$id_jeu){
+    $sql="SELECT categorie.nom FROM est_categorise JOIN categorie ON categorie.id_categorie = est_categorise.id_categorie WHERE est_categorise.id_jeu=?";
     $list = [$id_jeu];
     return readPrepare($mysqli, $sql, $list );
 }
 
 function SupportJeu($mysqli,$id_jeu){
-    $sql="SELECT support.nom FROM est_support JOIN support ON id_support WHERE est_support.id_jeu=?";
+    $sql="SELECT support.nom FROM est_supporte JOIN support ON est_supporte.id_support = support.id_support WHERE est_supporte.id_jeu=?";
     $list = [$id_jeu];
     return readPrepare($mysqli, $sql, $list );
 }
 
 function InfosAvis($mysqli,$id_jeu){
-    $sql="SELECT *,IFNULL(pdp, '/images/blank_pdp.webp') as pdp FROM avis JOIN user on avis.id_user = user.id  WHERE id_jeu=?";
+    $sql="SELECT *  FROM avis JOIN user on avis.id_user = user.id  WHERE id_jeu=?";
     $list = [$id_jeu];
     return readPrepare($mysqli, $sql, $list );
 }
 
-//Fonction permettant de modifier les droits d'un utilisateur
-
-function CategorieUser($mysqli,$id_user,$privilege){
-    $sql="UPDATE user SET user.privilege=? WHERE user.id=?";
-    $list = [$privilege,$id];
-    return writePrepare($mysqli, $sql);
+function InfosAvisUser($mysqli,$id_user){
+    $sql="SELECT *  FROM avis JOIN user on avis.id_user = user.id  WHERE id_user=?";
+    $list = [$id_user];
+    return readPrepare($mysqli, $sql, $list );
 }
 
+function InfosJeu($mysqli,$id_jeu){
+    $sql="SELECT *  FROM jeu WHERE id=?";
+    $list = [$id_jeu];
+    return readPrepare($mysqli, $sql, $list );
+}
+
+
+function getIllustrationByJeu($mysqli,$id_jeu){
+    $sql="SELECT *  FROM images WHERE id_jeu=?";
+    $list = [$id_jeu];
+    return readPrepare($mysqli, $sql, $list );
+}
+
+
+//Fonction permettant de modifier les droits d'un utilisateur
+
 function getUsers($mysqli){
-    $sql = "SELECT *,IFNULL(pdp, '/images/blank_pdp.webp') as pdp FROM user";
+    $sql = "SELECT * FROM user";
     return readDB($mysqli, $sql );
 }
 
-function getUser($mysqli,$id){
-    $sql = "SELECT *,IFNULL(pdp, '/images/blank_pdp.webp') as pdp FROM user WHERE id=?";
+function getUser($mysqli,$login){
+    $sql = "SELECT *  FROM user WHERE login=?";
+    $list = [$login];
+    return readPrepare($mysqli, $sql, $list );
+}
+
+function getUserById($mysqli,$id){
+    $sql = "SELECT * FROM user WHERE id=?";
     $list = [$id];
     return readPrepare($mysqli, $sql, $list );
 }
 
+function getPriviByUserId($mysqli,$id){
+    $sql = "SELECT privilege FROM user WHERE id=?";
+    $list = [$id];
+    return readPrepare($mysqli, $sql, $list )[0]["privilege"];
+}
+
+function getArticlesByRedac($mysqli,$id){
+    $sql = "SELECT * FROM article WHERE id_redacteur=?";
+    $list = [$id];
+    return readPrepare($mysqli, $sql, $list );
+}
+
+function getJeux($mysqli){
+    $sql = "SELECT * FROM jeu";
+    $list = [];
+    return readPrepare($mysqli, $sql, $list );
+}
+
 //Fonction pour la création d'un compte 
+function upload_illus($mysqli,$data,$id_jeu){
+    $sql = "INSERT into images (id_jeu,data) VALUES (?,?)";
+    $list=[$id_jeu,$data];
+    return writePrepare($mysqli, $sql,$list);
+}
+
+function create_game($mysqli,$nom,$prix,$date_sortie,$synopsis,$couverture){
+    $sql = "INSERT into jeu ( nom,prix,date_sortie,synopsis,couverture ) VALUES (?,?,?,?,?)";
+    $list=[$nom,$prix,$date_sortie,$synopsis,$couverture];
+    return writePrepare($mysqli, $sql,$list);
+}
+
 function create_account($mysqli,$login,$password,$name,$firstname,$email,$birthday){
     $sql = "INSERT into user (login,password,nom,prenom,email,birthday) VALUES (?,?,?,?,?,?)";
     $list=[$login,$password,$name,$firstname,$email,$birthday];
+    return writePrepare($mysqli, $sql,$list);
+}
+
+function connect($mysqli,$id){
+    $update = "SET GLOBAL time_zone = '+2:00';";
+    writeDB($mysqli,$update);
+    $sql = "UPDATE user SET date_last_login=NOW() WHERE user.id=?";
+    $list=[$id];
+    return writePrepare($mysqli, $sql,$list);
+}
+
+function modifPrivi($mysqli,$id,$privilege){
+    $sql = "UPDATE user SET privilege=? WHERE user.id=?";
+    $list=[$privilege,$id];
+    return writePrepare($mysqli, $sql,$list);
+}
+
+function update_game_couv($mysqli,$nom,$prix,$date_sortie,$synopsis,$couverture,$id){
+    $sql = "UPDATE jeu set nom=?,prix=?,date_sortie=?,synopsis=?,couverture=? where id = ?";
+    $list=[$nom,$prix,$date_sortie,$synopsis,$couverture,$id];
+    return writePrepare($mysqli, $sql,$list);
+}
+
+function update_game($mysqli,$nom,$prix,$date_sortie,$synopsis,$id){
+    $sql = "UPDATE jeu set nom=?,prix=?,date_sortie=?,synopsis=? where id = ?";
+    $list=[$nom,$prix,$date_sortie,$synopsis,$id];
+    return writePrepare($mysqli, $sql,$list);
+}
+
+function update_article($mysqli,$titre,$contenu,$note,$id){
+    $sql = "UPDATE article set titre=?,contenu=?,note=? where id = ?";
+    $list=[$titre,$contenu,$note,$id];
+    return writePrepare($mysqli, $sql,$list);
+}
+
+function update_user_pdp($mysqli,$id,$login,$nom,$prenom,$email,$pdp){
+    $sql = "UPDATE user set nom=?,prenom=?,email=?,login=?,pdp=? where id = ?";
+    $list=[$nom,$prenom,$email,$login,$pdp,$id];
+    return writePrepare($mysqli, $sql,$list);
+}
+
+function update_user($mysqli,$id,$login,$nom,$prenom,$email){
+    $sql = "UPDATE user set nom=?,prenom=?,email=?,login=? where id = ?";
+    $list=[$nom,$prenom,$email,$login,$id];
     return writePrepare($mysqli, $sql,$list);
 }
 
@@ -83,21 +207,72 @@ function jeuxSansArticle($mysqli){
     return readDB($mysqli, $sql);
 }
 
-//Recherche par nom de jeu 
-function rechercheNom($mysqli,$texte){
-    $sql = "SELECT jeu.nom,article.titre,article.date_creation,jeu.couverture FROM jeu JOIN article ON jeu.id = article.id_jeu WHERE nom LIKE '%?%'";
-    $list=[$texte];
-    return readPrepare($mysqli,$sql,$list);
-}
-
 //Recuperation des noms des categories de jeu
-function nomCategories($mysqli){
+function getCategories($mysqli){
     $sql = "SELECT id_categorie,nom FROM categorie";
     return readDB($mysqli,$sql);
 }
 
-//Recuperation des jeux fonction du/des categories
-function rechercheCategories($mysqli,$categories){
-    
+//Recuperation des noms des categories de jeu
+function getSupports($mysqli){
+    $sql = "SELECT id_support,nom FROM support";
+    return readDB($mysqli,$sql);
 }
+
+
+
+function delete_support($mysqli,$id_jeu,$supports){
+
+    $query = implode (",", array_fill(0,count($supports),"?") );
+    $sql = "DELETE FROM est_supporte WHERE id_jeu=? AND id_support NOT IN ($query)";
+    $list = array_merge ( [$id_jeu] , $supports ) ;
+
+    return writePrepare($mysqli, $sql,$list);
+}
+
+function delete_categorie($mysqli,$id_jeu,$categories){
+
+    $query = implode (",", array_fill(0,count($categories),"?") );
+    $sql = "DELETE FROM est_categorise WHERE id_jeu=? AND id_categorie NOT IN ($query)";
+    $list = array_merge ( [$id_jeu] , $categories ) ;
+
+    return writePrepare($mysqli, $sql,$list);
+}
+
+function insert_categorie($mysqli,$id_jeu,$categories){
+
+    $query = "SELECT " . implode (" UNION SELECT ", array_fill(0,count($categories),"?") );
+    
+    $sql = "INSERT INTO est_categorise (id_jeu,id_categorie)
+            ( 
+                SELECT ? as id_jeu, a.* FROM (
+                    ( $query )
+                    EXCEPT 
+                    SELECT id_categorie FROM est_categorise WHERE id_jeu=?
+                ) as a
+            );
+    ";
+    $list = array_merge ( [$id_jeu] , $categories , [$id_jeu]) ;
+
+    return writePrepare($mysqli, $sql,$list);
+}
+
+function insert_support($mysqli,$id_jeu,$supports){
+
+    $query = "SELECT " . implode (" UNION SELECT ", array_fill(0,count($supports),"?") );
+    
+    $sql = "INSERT INTO est_supporte (id_jeu,id_support)
+            ( 
+                SELECT ? as id_jeu, a.* FROM (
+                    ( $query )
+                    EXCEPT 
+                    SELECT id_support FROM est_supporte WHERE id_jeu=?
+                ) as a
+            );
+    ";
+    $list = array_merge ( [$id_jeu] , $supports , [$id_jeu]) ;
+
+    return writePrepare($mysqli, $sql,$list);
+}
+
 ?>

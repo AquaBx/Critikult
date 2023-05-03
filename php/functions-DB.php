@@ -1,5 +1,6 @@
 <?php
 
+
 #connexion à la base de données en MySQLi (base de données SQL)
 function connectionDB()
 {
