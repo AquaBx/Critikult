@@ -216,7 +216,7 @@ input[type="checkbox"],input[type="radio"]{
     text-decoration: none;
     position: relative;
     border-radius: 1rem;
-    height: 20em;
+    height: 40em;
     overflow: hidden;
 }
 
