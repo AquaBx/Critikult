@@ -34,7 +34,7 @@
         <?php include("./static/modal.php");  ?>
         <main>
         
-            <h2>Connection</h2>
+            <h2>Connexion</h2>
 
             <form method="POST" action="./php/login.php">
             

@@ -42,10 +42,10 @@
 
                     echo "<li><a href='./profil.php?l=$log'>Profil</a></li>";
                     echo "<li><a href='./modif_profil.php'>Paramètres</a></li>";
-                    echo "<li><a href='./php/logout.php'>Déconnection</a></li>";
+                    echo "<li><a href='./php/logout.php'>Déconnexion</a></li>";
                 }
                 else{
-                    echo "<li><a href='./login.php'>Connection</a></li>";
+                    echo "<li><a href='./login.php'>Connexion</a></li>";
                     echo "<li><a href='./signup.php'>Créer un compte</a></li>";
                 }
                 ?>

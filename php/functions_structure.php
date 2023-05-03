@@ -289,7 +289,7 @@ function profil($pdp,$name,$login,$status,$datecrea,$datemodif,$birthday,$email)
     echo '</a>';
 
     echo "<a>";
-    echo "Dernière connection le $date2";
+    echo "Dernière connexion le $date2";
     echo '</a>';
 
     echo "<a href='mailto:$email'>Contact</a>";
