@@ -308,6 +308,12 @@ th, td {
     position: relative;
 }
 
+img {
+    image-rendering: pixelated;
+
+}
+
+
 .profil {
 
     background-color: var(--secondary);

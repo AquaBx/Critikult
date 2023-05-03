@@ -60,7 +60,7 @@
                 <input id="date" name="date" type='date' required>
 
                 <label for="couverture">Couverture</label>
-                <input id="couverture" accept="image/*" name="couverture" type='file' required>
+                <input id="couverture" accept="image/*" name="couverture" type='file' accept='image/*' required>
 
                 
 

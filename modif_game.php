@@ -113,7 +113,7 @@
                 echo "<label for='couverture'>Couverture</label>";
                 echo "<div>";
                 echo "<img width='100%' src='$img' >";
-                echo "<input id='couverture' accept='image/*' name='couverture' type='file'>";
+                echo "<input id='couverture' accept='image/*' name='couverture' type='file' accept='image/*'>";
                 echo "</div>";
                 echo "<label for='prix'>Prix du jeu</label>";
                 echo "<input type='number' step='.01' name='prix' id='prix' value='$prix' min=0 max=999.99 required/>";
@@ -132,7 +132,7 @@
                 ?>
 
                 <label for="illustration">Illustrations</label>
-                <input id="illustration" accept="image/*" name="illustration" type='file' required>
+                <input id="illustration" accept="image/*" name="illustration" type='file' accept='image/*' required>
 
                 <input name='newillus' type="submit">    
             </form>
