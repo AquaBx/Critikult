@@ -179,11 +179,6 @@ function star_note($note){
 </svg>";
 }
 
-function avg_avis_display($note){
-    $val=$note["blabla"];
-
-}
-
 function opinion($avi){
 
     $name = $avi['prenom'] . " " . $avi['nom'];

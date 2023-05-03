@@ -201,7 +201,7 @@ function create_avis($mysqli,$commentaire,$note,$id,$id_jeu){
 }
 
 function avg_avis($mysqli,$id_jeu){
-    $sql = "SELECT AVG(avis.note) FROM avis WHERE avis.id_jeu = '$id_jeu';";
+    $sql = "SELECT AVG(avis.note) AS avg_avis FROM avis WHERE avis.id_jeu = '$id_jeu';";
     return readDB($mysqli, $sql);
 }
 
