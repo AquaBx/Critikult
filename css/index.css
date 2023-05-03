@@ -273,7 +273,7 @@ th, td {
 
 .opinion {
     display: grid;
-    grid-template-columns: 6em 2fr 6em;
+    grid-template-columns: 6em 2fr 12em;
     gap: 1em 2em;
     background-color: var(--secondary);
     align-items: center;
@@ -306,10 +306,6 @@ th, td {
     
     gap: 1em;
     position: relative;
-}
-
-.avislist .opinion{
-    grid-template-columns:6em 2fr 12em;
 }
 
 .profil {

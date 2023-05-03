@@ -99,7 +99,7 @@
                 echo "<textarea style='resize:vertical;' id='contenu' name='contenu' required>$contenu</textarea>";
 
                 echo "<label for='note'>Note</label>";
-                echo "<input type='number' name='note' id='note' value='$note' min=0 max=5 required/>";
+                echo "<input type='number' name='note' id='note' value='$note' min=0 max=10 required/>";
                  	 	 	 	 	
                 ?>
 
