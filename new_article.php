@@ -64,7 +64,7 @@
                 <textarea style="resize:vertical;" id="corps" name="corps" required></textarea>
 
                 <label for="note">Note attribué au jeu</label>
-                <input type="number" name="note" id="note" min=0 max=5 required/>
+                <input type="number" name="note" id="note" min=0 max=10 required/>
                 
                 <input type="submit">    
             </form>
