@@ -113,16 +113,12 @@ function display_article($article,$categories,$supports){
 
 
     echo "<h1 style='text-align:center'>$titre</h1>";
-    echo "<div class='test' style='position:relative'>";
+    echo "<div class='article_head' style='position:relative'>";
     $img = 'data:image;base64,' . base64_encode( $couv ) ;
     echo "<img style='object-fit:cover;height:100%;width:100%;position:relative;'  src='$img' >" ;
-    echo "</div>";
 
-    echo "<h1>Présentation de $nom_jeu</h1>";
-
-
-    echo "<p>$synopsis</p>";
-
+    echo "<div>";
+  
     echo "<p>Prix : $prix €</p>";
 
     echo "<p>Catégories : ";
@@ -143,6 +139,14 @@ function display_article($article,$categories,$supports){
 
     echo "</p>";
 
+    echo "</div>";
+
+    echo "</div>";
+
+    echo "<h1>Présentation de $nom_jeu</h1>";
+
+
+    echo "<p>$synopsis</p>";
 
     
     echo "<br>";

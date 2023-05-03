@@ -263,11 +263,17 @@ article > p {
     line-height: 1.5;
 }
 
-.test {
-    height:25em;
-    border-radius: 1rem;
-    overflow: hidden;
+.article_head {
+    gap:1em;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 20em 1fr;
 }
+
+.article_head > img { 
+    border-radius: 1rem;
+}
+    
 
 
 @keyframes article_appear {
