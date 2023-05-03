@@ -38,7 +38,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Critikult</title>
-        <link rel="icon" href="./images/favicon.jpeg">
+        <link rel="icon" href="./images/favicon.webp">
         <meta name="author" content="Jean-Eudes BORNERT Tom CHAUVEL">
         <meta name="keywords" content="Jeux video">
     </head>

@@ -3,20 +3,40 @@
     src: url(Rubik-VariableFont_wght.ttf);
 }
 
+
+
+
 :root{
-    --main:rgb(19, 23, 32);
-    --secondary:rgb(12, 14, 17);
-    --secondary-t:rgb(12, 14, 17,0.7);
+    --main:hsl(222, 25%, 90%);
+    --secondary:hsl(216, 17%, 94%);
+    --secondary-t:hsla(216, 17%, 94%, 0.7);
     --action:rgb(139, 213, 232);
     --special:rgb(0, 165, 207);
     --success:rgb(59, 245, 34);
     --error:rgb(250, 69, 23);
+    --text:black;
+    --text-reversed: white;
 }
 
+@media (prefers-color-scheme: dark){
+
+    :root{
+        --main:rgb(19, 23, 32);
+        --secondary:rgb(12, 14, 17);
+        --secondary-t:rgb(12, 14, 17,0.7);
+        --action:rgb(139, 213, 232);
+        --special:rgb(0, 165, 207);
+        --success:rgb(59, 245, 34);
+        --error:rgb(250, 69, 23);
+        --text:white;
+        --text-reversed: black;
+    }
+
+}
 
 html {
     background-color: var(--main);
-    color:white;
+    color:var(--text);
     font-family: Rubik;
     
 }
@@ -40,7 +60,7 @@ navbar{
 }
 
 a {
-    color:white;
+    color:var(--text);
     text-decoration: none;
     transition: 0.2s;
     text-decoration: none;
@@ -243,11 +263,17 @@ article > p {
     line-height: 1.5;
 }
 
-.test {
-    height:25em;
-    border-radius: 1rem;
-    overflow: hidden;
+.article_head {
+    gap:1em;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 20em 1fr;
 }
+
+.article_head > img { 
+    border-radius: 1rem;
+}
+    
 
 
 @keyframes article_appear {
@@ -266,7 +292,7 @@ table {
 }
 
 th, td {
-    border: 1px solid black;
+    border: 1px solid var(--text-reversed);
     padding:  0.5em 1em;
     text-align: center;
 }
@@ -340,7 +366,7 @@ img {
 .fonctiontag{
     font-size: 1rem;
     font-weight: 400;
-    border: 1px solid white;
+    border: 1px solid var(--text);
     padding:0.2em;
 }
 
