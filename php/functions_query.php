@@ -200,6 +200,11 @@ function create_avis($mysqli,$commentaire,$note,$id,$id_jeu){
     return writePrepare($mysqli, $sql,$list);
 }
 
+function avg_avis($mysqli,$id_jeu){
+    $sql = "SELECT AVG(avis.note) FROM avis WHERE avis.id_jeu = '$id_jeu';";
+    return readDB($mysqli, $sql);
+}
+
 // Fonction qui renvoie tous les jeux qui n'ont pas d'article
 
 function jeuxSansArticle($mysqli){
@@ -274,5 +279,7 @@ function insert_support($mysqli,$id_jeu,$supports){
 
     return writePrepare($mysqli, $sql,$list);
 }
+
+
 
 ?>

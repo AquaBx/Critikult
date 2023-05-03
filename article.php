@@ -19,20 +19,26 @@
     $illus = getIllustrationByJeu($mysqli,$id_jeu);
     $categorie = CategorieJeu($mysqli,$id_jeu);
     $support = SupportJeu($mysqli,$id_jeu);
+    $avg = avg_avis($mysqli,$id_jeu);
 
     closeDB($mysqli);
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <link rel="stylesheet" href="./css/index.css">
 
         <link rel="stylesheet" href="./fontawesome/css/solid.min.css">
         <link rel="stylesheet" href="./fontawesome/css/fontawesome.min.css">
         <link rel="stylesheet" href="./fontawesome/css/regular.min.css">
-        <link rel="stylesheet" href="./fontawesome/css/brands.min.css">
+        <link rel="stylesheet" href="./fontawesome/css/brands.min.css">       
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Critikult</title>
+        <link rel="icon" href="./images/favicon.svg">
+        <meta name="author" content="Jean-Eudes BORNERT Tom CHAUVEL">
+        <meta name="keywords" content="Jeux video">
     </head>
 
 <body>
