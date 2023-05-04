@@ -202,7 +202,7 @@ function profil_opinion($avi,$role,$user){
     echo "<div class='opinion'>";
 
     if ($role == 'administrateur' || $user==$id_user ){
-        echo "<a class='trash' href='./php/delete_avis.php?id=$id&id_jeu=$id_jeu'><i class='fa-regular fa-trash-can'></i></a>";
+        echo "<a class='trash' href='./php/delete_avis.php?id=$id_user&id_jeu=$id_jeu'><i class='fa-regular fa-trash-can'></i></a>";
     }
 
     echo "<div class='grid'>";

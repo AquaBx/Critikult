@@ -94,12 +94,14 @@ navbar h1{
 
 main{
     padding:1rem;
+    width:clamp(0px, calc(100% - 2rem) ,90rem);
+    margin: auto;
 }
 
 main:not(.accueil){
     width:clamp(0px, calc(100% - 2rem) ,50rem);
 
-    margin: auto;
+
 }
 
 form {
