@@ -58,17 +58,15 @@
         
         try{
             $id_jeu = $_POST["id"];
-
+            
             if (isset($_POST["categorie"])){
                 $categories = $_POST["categorie"];
                 $updategame = insert_categorie($mysqli,$id_jeu,$categories);
+                $updategame = delete_categorie($mysqli,$id_jeu,$categories);
             }
             else{
-                $categories = [];
+                $updategame = delete_categorie($mysqli,$id_jeu);
             }
-            
-            $updategame = delete_categorie($mysqli,$id_jeu,$categories);
-            
         }
         catch(Exception $e){
             $updategame = 0;
@@ -79,11 +77,16 @@
         try{
             print_r($_POST);
             $id_jeu = $_POST["id"];
-            $supports = $_POST["support"];
 
-            $updategame = insert_support($mysqli,$id_jeu,$supports);
-            $updategame = delete_support($mysqli,$id_jeu,$supports);
-
+            if (isset($_POST["support"])){
+                $supports = $_POST["support"];
+                $updategame = insert_support($mysqli,$id_jeu,$supports);
+                $updategame = delete_support($mysqli,$id_jeu,$supports);
+            }
+            else{
+                $updategame = delete_support($mysqli,$id_jeu);
+            }
+            
         }
         catch(Exception $e){
             $updategame = 0;

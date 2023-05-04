@@ -3,20 +3,32 @@ date_default_timezone_set('Etc/GMT+2');
 
 //Menu  avec tous les articles
 function MenuArticles($mysqli,$nombres,$offset,$categorie,$name){
+    if ($categorie == "") {
+        $sql = "SELECT DISTINCT article.id, jeu.nom as jeu,article.titre,article.date_creation,jeu.couverture FROM jeu 
+        LEFT JOIN est_categorise ON jeu.id = est_categorise.id_jeu 
+        JOIN article ON jeu.id = article.id_jeu 
 
-    $sql = "SELECT DISTINCT article.id, jeu.nom as jeu,article.titre,article.date_creation,jeu.couverture FROM jeu 
-    JOIN article ON jeu.id = article.id_jeu 
+        LEFT JOIN categorie ON est_categorise.id_categorie = categorie.id_categorie
 
-    JOIN est_categorise ON jeu.id = est_categorise.id_jeu 
-    JOIN categorie ON est_categorise.id_categorie = categorie.id_categorie
+        WHERE jeu.nom LIKE ?
+        ORDER BY article.date_creation DESC LIMIT ? OFFSET ?;
+        ";
+        $list = ['%'.$name.'%',$nombres,$offset];
 
-    WHERE jeu.nom LIKE ? AND categorie.id_categorie LIKE ?
-    ORDER BY article.date_creation DESC LIMIT ? OFFSET ?;
-    ";
+    }
+    else{
+            $sql = "SELECT DISTINCT article.id, jeu.nom as jeu,article.titre,article.date_creation,jeu.couverture FROM jeu 
+            LEFT JOIN est_categorise ON jeu.id = est_categorise.id_jeu 
+            JOIN article ON jeu.id = article.id_jeu 
+    
+            LEFT JOIN categorie ON est_categorise.id_categorie = categorie.id_categorie
+    
+            WHERE jeu.nom LIKE ? AND categorie.id_categorie LIKE ? 
+            ORDER BY article.date_creation DESC LIMIT ? OFFSET ?;
+            ";
+            $list = ['%'.$name.'%',$categorie,$nombres,$offset];
+    }
 
-    if ($categorie == "") { $categorie = "%";}
-
-    $list = ['%'.$name.'%',$categorie,$nombres,$offset];
     return readPrepare($mysqli, $sql, $list  );
 }
 
@@ -24,9 +36,6 @@ function ProfilArticles($mysqli,$id_redac){
 
     $sql = "SELECT DISTINCT article.id, jeu.nom as jeu,article.titre,article.date_creation,jeu.couverture FROM jeu 
     JOIN article ON jeu.id = article.id_jeu 
-
-    JOIN est_categorise ON jeu.id = est_categorise.id_jeu 
-    JOIN categorie ON est_categorise.id_categorie = categorie.id_categorie
 
     WHERE id_redacteur=?
     ORDER BY article.date_creation DESC;
@@ -40,12 +49,12 @@ function countArticles($mysqli,$categorie,$name){
 
     $sql = "SELECT count(*) as nb FROM ( 
         SELECT DISTINCT article.id FROM jeu 
+        LEFT JOIN est_categorise ON jeu.id = est_categorise.id_jeu 
         JOIN article ON jeu.id = article.id_jeu 
 
-        JOIN est_categorise ON jeu.id = est_categorise.id_jeu 
-        JOIN categorie ON est_categorise.id_categorie = categorie.id_categorie
+        LEFT JOIN categorie ON est_categorise.id_categorie = categorie.id_categorie
 
-        WHERE jeu.nom LIKE ? AND categorie.id_categorie LIKE ?
+        WHERE jeu.nom LIKE ? AND ( categorie.id_categorie LIKE ? OR categorie.id_categorie IS NULL )
     ) AS subquery
     ";
 
@@ -261,20 +270,32 @@ function delete_avis($mysqli,$id_jeu,$id){
     return writePrepare($mysqli, $sql,$list);
 }
 
-function delete_support($mysqli,$id_jeu,$supports){
+function delete_support($mysqli,$id_jeu,$supports=""){
+    if ($supports){
+        $query = implode (",", array_fill(0,count($supports),"?") );
+        $sql = "DELETE FROM est_supporte WHERE id_jeu=? AND id_support NOT IN ($query)";
+        $list = array_merge ( [$id_jeu] , $supports ) ;
+    }
+    else{
+        $sql = "DELETE FROM est_supporte WHERE id_jeu=?";
+        $list = [$id_jeu];
+    }
 
-    $query = implode (",", array_fill(0,count($supports),"?") );
-    $sql = "DELETE FROM est_supporte WHERE id_jeu=? AND id_support NOT IN ($query)";
-    $list = array_merge ( [$id_jeu] , $supports ) ;
 
     return writePrepare($mysqli, $sql,$list);
 }
 
-function delete_categorie($mysqli,$id_jeu,$categories){
-
-    $query = implode (",", array_fill(0,count($categories),"?") );
-    $sql = "DELETE FROM est_categorise WHERE id_jeu=? AND id_categorie NOT IN ($query)";
-    $list = array_merge ( [$id_jeu] , $categories ) ;
+function delete_categorie($mysqli,$id_jeu,$categories=""){
+    if ($categories){
+        $query = implode (",", array_fill(0,count($categories),"?") );
+        $sql = "DELETE FROM est_categorise WHERE id_jeu=? AND id_categorie NOT IN ($query)";
+        $list = array_merge ( [$id_jeu] , $categories ) ;
+    }
+    else{
+        $sql = "DELETE FROM est_categorise WHERE id_jeu=?";
+        $list = [$id_jeu] ;
+    }
+    
 
     return writePrepare($mysqli, $sql,$list);
 }
