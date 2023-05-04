@@ -83,7 +83,7 @@ function InfosAvis($mysqli,$id_jeu){
 }
 
 function InfosAvisUser($mysqli,$id_user){
-    $sql="SELECT *  FROM avis JOIN user on avis.id_user = user.id  WHERE id_user=?";
+    $sql="SELECT avis.*,user.id as id_user,article.id as id_art, article.titre as titre_art  FROM avis JOIN user on avis.id_user = user.id JOIN article ON article.id_jeu = avis.id_jeu WHERE id_user=?";
     $list = [$id_user];
     return readPrepare($mysqli, $sql, $list );
 }

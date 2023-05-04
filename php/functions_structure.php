@@ -188,6 +188,43 @@ function star_note($note){
 </svg>";
 }
 
+
+function profil_opinion($avi,$role,$user){
+
+    $name = $avi['titre_art'];
+    $note = $avi['note'];
+    $datecrea = $avi['date'];
+    $contenu = $avi['contenu'];
+    $id = $avi['id_art'];
+    $id_jeu = $avi['id_jeu'];
+
+    echo "<div class='opinion'>";
+
+    if ($role == 'administrateur' || $user==$id ){
+        echo "<a class='trash' href='./php/delete_avis.php?id=$id&id_jeu=$id_jeu'><i class='fa-regular fa-trash-can'></i></a>";
+    }
+
+    echo "<div class='grid'>";
+
+    echo "<h2><a href='./article.php?id=$id'>$name</a></h2>";
+    star_note($note);
+            
+    echo "<p>$contenu</p>";
+
+    echo "<a>";
+
+    $date1 = date("d/m/Y", strtotime($datecrea));
+
+    echo "Créé le $date1";
+
+    echo '</a>';
+            
+    echo "</div>";
+
+    echo "</div>";
+}
+
+
 function opinion($avi,$role,$user){
 
     $name = $avi['prenom'] . " " . $avi['nom'];
@@ -201,7 +238,7 @@ function opinion($avi,$role,$user){
     
 
 
-    echo "<div class='opinion'>";
+    echo "<div class='opinion opinion_pdp'>";
 
     if ($role == 'administrateur' || $user==$id ){
         echo "<a class='trash' href='./php/delete_avis.php?id=$id&id_jeu=$id_jeu'><i class='fa-regular fa-trash-can'></i></a>";
@@ -244,7 +281,7 @@ function redac_opinion($avi,$redac){
     $datemodif = $avi['date_modification'];
     $id = $redac['id'];
         
-    echo "<div class='opinion'>";
+    echo "<div class='opinion opinion_pdp'>";
     echo "<div class='grid'>";
 
     if ($pdp){
@@ -333,6 +370,20 @@ function display_avis($avis,$role,$user){
     else{
         foreach ($avis as $avi){
             opinion($avi,$role,$user);
+        }
+    }
+    echo "</div>";
+
+}
+
+function display_profil_avis($avis,$role,$user){
+    echo "<div class='avislist'>";
+    if (count($avis)==0){
+        echo "<p class='texte_centre'>Aucun avis n'a été rédigé pour le moment !</p>";
+    }
+    else{
+        foreach ($avis as $avi){
+            profil_opinion($avi,$role,$user);
         }
     }
     echo "</div>";

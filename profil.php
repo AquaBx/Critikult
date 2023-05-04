@@ -74,10 +74,10 @@
     echo "<h2>Avis</h2>";
 
     if (isset($_SESSION["id"])){
-        display_avis($avis,$privisession,$_SESSION["id"]);
+        display_profil_avis($avis,$privisession,$_SESSION["id"]);
     }
     else{
-        display_avis($avis,'','');
+        display_profil_avis($avis,'','');
     }
 
     echo "<h2>Articles</h2>";
