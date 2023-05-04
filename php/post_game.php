@@ -21,8 +21,13 @@
         $couverture = $_FILES["couverture"];
         $prix = $_POST["prix"];
 
-        $couverture_content = file_get_contents($couverture['tmp_name']);
-        $creategame = create_game($mysqli,$nom,$prix,$date_sortie,$synopsis,$couverture_content);
+        if ($couverture["size"] >= 1048576){
+            $creategame = 2;
+        }
+        else {
+            $couverture_content = file_get_contents($couverture['tmp_name']);
+            $creategame = create_game($mysqli,$nom,$prix,$date_sortie,$synopsis,$couverture_content);
+        }
     }
     catch(Exception $e){
         $creategame = 0;
@@ -31,6 +36,10 @@
     if ($creategame == 1) {
         $_SESSION["form_msg"] = "Votre jeu a bien été ajouté";
         $_SESSION["form_result"] = "success";
+    }
+    elseif ($creategame == 2) {
+        $_SESSION["form_msg"] = "L'image est supérieur à 1Mo !";
+        $_SESSION["form_result"] = "error";
     }
     else{
         $_SESSION["form_msg"] = "Une erreur s'est produite";

@@ -23,7 +23,10 @@
             $date_sortie = $_POST["date"];
             $prix = $_POST["prix"];
 
-            if ($_FILES["couverture"]["size"] !== 0){
+            if ($_FILES["couverture"]["size"]  >= 1048576){
+                $updategame = 2;
+            }
+            elseif ($_FILES["couverture"]["size"] !== 0){
                 $couverture = $_FILES["couverture"];
                 $couverture_content = file_get_contents($couverture['tmp_name']);
                 $updategame = update_game_couv($mysqli,$nom,$prix,$date_sortie,$synopsis,$couverture_content,$id);
@@ -43,9 +46,16 @@
         try{
 
             $illustration = $_FILES["illustration"];
-            $id = $_POST["id"];
-            $illustration_content = file_get_contents($illustration['tmp_name']);
-            $updategame = upload_illus($mysqli,$illustration_content,$id);
+
+            if ($illustration["size"]  >= 1048576){
+                $updategame = 2;
+            }
+            else {
+                $id = $_POST["id"];
+                $illustration_content = file_get_contents($illustration['tmp_name']);
+                $updategame = upload_illus($mysqli,$illustration_content,$id);
+            }
+
             
         }
         catch(Exception $e){
@@ -98,8 +108,12 @@
         $_SESSION["form_msg"] = "Votre jeu a bien été modifié";
         $_SESSION["form_result"] = "success";
     }
+    elseif ($updategame == 2) {
+        $_SESSION["form_msg"] = "L'image est supérieur à 1Mo !";
+        $_SESSION["form_result"] = "error";
+    }
     else{
-        $_SESSION["form_msg"] = "$e";
+        $_SESSION["form_msg"] = "Une erreur s'est produite";
         $_SESSION["form_result"] = "error";
     }
 

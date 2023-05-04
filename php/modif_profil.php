@@ -26,7 +26,10 @@
         $login = $_POST["login"];
         $email = $_POST["email"];
 
-        if ($_FILES["pdp"]["size"] !== 0){
+        if ($_FILES["pdp"]["size"] >= 1048576){
+            $updateuser = 2;
+        }
+        elseif ($_FILES["pdp"]["size"] !== 0){
             $pdp = $_FILES["pdp"];
             $pdp = file_get_contents($pdp['tmp_name']);
             $updateuser = update_user_pdp($mysqli,$id,$login,$nom,$prenom,$email,$pdp);
@@ -43,6 +46,10 @@
     if ($updateuser == 1) {
         $_SESSION["form_msg"] = "Votre profil a bien été modifié";
         $_SESSION["form_result"] = "success";
+    }
+    elseif ($updateuser == 2) {
+        $_SESSION["form_msg"] = "L'image est supérieur à 1Mo !";
+        $_SESSION["form_result"] = "error";
     }
     else{
         $_SESSION["form_msg"] = "Une erreur s'est produite";
