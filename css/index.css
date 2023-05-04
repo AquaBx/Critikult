@@ -251,6 +251,15 @@ input[type="checkbox"],input[type="radio"]{
     z-index: -1;
 }
 
+span.supcat {
+	border : 1px solid var(--text); 
+  	padding: 0.2em;
+  	border-radius : 0.4em;
+    margin: 0.2em;
+    display:inline-block;
+    background-color: var(--secondary);
+}
+
 .navpages {
     display: flex;
     justify-content: center;

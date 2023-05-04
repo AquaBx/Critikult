@@ -125,7 +125,7 @@ function display_article($article,$categories,$supports){
 
     foreach($categories as $categorie){
         $nom = $categorie['nom'];
-        echo "<span>$nom</span>";
+        echo "<span class='supcat'>$nom </span>";
     }
 
     echo "</p>";
@@ -134,7 +134,7 @@ function display_article($article,$categories,$supports){
 
     foreach($supports as $support){
         $nom = $support['nom'];
-        echo "<span>$nom</span>";
+        echo "<span class='supcat'>$nom </span>";
     }
 
     echo "</p>";
