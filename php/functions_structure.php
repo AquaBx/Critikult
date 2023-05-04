@@ -40,7 +40,7 @@ function liste_users($users){
         echo "<tr class='user'><form method='POST' action='./php/post_admin.php'>";
         $log = $user["login"];
         $id = $user["id"];
-        echo "<td><a href='./profil.php?l=$log'>$log</a><input type='hidden' name='id' value='$id'></td>";
+        echo "<td><a href='./profil.php?id=$id'>$log</a><input type='hidden' name='id' value='$id'></td>";
         echo "<td><input type='radio' $checked1 name='fonction' value='membre'></td>";
         echo "<td><input type='radio' $checked2 name='fonction' value='rédacteur'></td>";
         echo "<td><input type='radio' $checked3 name='fonction' value='administrateur'></td>";
@@ -183,16 +183,26 @@ function star_note($note){
 </svg>";
 }
 
-function opinion($avi){
+function opinion($avi,$role,$user){
 
     $name = $avi['prenom'] . " " . $avi['nom'];
     $pdp = $avi['pdp'];
     $note = $avi['note'];
     $datecrea = $avi['date'];
     $contenu = $avi['contenu'];
-    $login = $avi['login'];
-        
+    $id = $avi['id'];
+    $id_jeu = $avi['id_jeu'];
+
+    
+
+
     echo "<div class='opinion'>";
+
+    if ($role == 'administrateur' || $user==$id ){
+        echo "<a class='trash' href='./php/delete_avis.php?id=$id&id_jeu=$id_jeu'><i class='fa-regular fa-trash-can'></i></a>";
+    }
+
+    echo "<div class='grid'>";
 
     if ($pdp){
         $img = 'data:image;base64,' . base64_encode( $pdp ) ;
@@ -202,7 +212,7 @@ function opinion($avi){
     }
 
     echo "<img style='width:6em; border-radius:360em;' src='$img'>";
-    echo "<h2><a href='./profil.php?l=$login'>$name</a></h2>";
+    echo "<h2><a href='./profil.php?id=$id'>$name</a></h2>";
     star_note($note);
             
     echo "<p>$contenu</p>";
@@ -215,6 +225,7 @@ function opinion($avi){
 
     echo '</a>';
             
+    echo "</div>";
 
     echo "</div>";
 }
@@ -229,6 +240,7 @@ function redac_opinion($avi,$redac){
     $login = $redac['login'];
         
     echo "<div class='opinion'>";
+    echo "<div class='grid'>";
 
     if ($pdp){
         $img = 'data:image;base64,' . base64_encode( $pdp ) ;
@@ -253,6 +265,7 @@ function redac_opinion($avi,$redac){
 
     echo '</a>';
             
+    echo "</div>";
 
     echo "</div>";
 }
@@ -307,10 +320,10 @@ function profil($pdp,$name,$login,$status,$datecrea,$datemodif,$birthday,$email)
     echo "<br>";
 }
 
-function display_avis($avis){
+function display_avis($avis,$role,$user){
     echo "<div class='avislist'>";
     foreach ($avis as $avi){
-        opinion($avi);
+        opinion($avi,$role,$user);
     }
     echo "</div>";
 }

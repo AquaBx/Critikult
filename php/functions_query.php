@@ -93,17 +93,18 @@ function getUsers($mysqli){
     return readDB($mysqli, $sql );
 }
 
-function getUser($mysqli,$login){
-    $sql = "SELECT *  FROM user WHERE login=?";
-    $list = [$login];
-    return readPrepare($mysqli, $sql, $list );
-}
-
 function getUserById($mysqli,$id){
     $sql = "SELECT * FROM user WHERE id=?";
     $list = [$id];
     return readPrepare($mysqli, $sql, $list );
 }
+
+function getUser($mysqli,$login){
+    $sql = "SELECT * FROM user WHERE login=?";
+    $list = [$login];
+    return readPrepare($mysqli, $sql, $list );
+}
+
 
 function getPriviByUserId($mysqli,$id){
     $sql = "SELECT privilege FROM user WHERE id=?";
@@ -200,6 +201,12 @@ function create_avis($mysqli,$commentaire,$note,$id,$id_jeu){
     return writePrepare($mysqli, $sql,$list);
 }
 
+function modif_avis($mysqli,$commentaire,$note,$id,$id_jeu){
+    $sql = "UPDATE avis set contenu=?,note=? WHERE id_user=? AND id_jeu=?";
+    $list=[$commentaire,$note,$id,$id_jeu];
+    return writePrepare($mysqli, $sql,$list);
+}
+
 function avg_avis($mysqli,$id_jeu){
     $sql = "SELECT AVG(avis.note) AS avg_avis FROM avis WHERE avis.id_jeu = '$id_jeu';";
     return readDB($mysqli, $sql);
@@ -224,7 +231,19 @@ function getSupports($mysqli){
     return readDB($mysqli,$sql);
 }
 
+function getAvisByUser($mysqli,$id_user,$id_jeu){
+    $sql = "SELECT * FROM avis WHERE id_user=? AND id_jeu=?";
+    $list = [$id_user,$id_jeu];
+    return readPrepare($mysqli, $sql, $list );
+}
 
+function delete_avis($mysqli,$id_jeu,$id){
+
+    $sql = "DELETE FROM avis WHERE id_jeu=? AND id_user=?";
+    $list = [$id_jeu,$id] ;
+
+    return writePrepare($mysqli, $sql,$list);
+}
 
 function delete_support($mysqli,$id_jeu,$supports){
 

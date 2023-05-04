@@ -8,7 +8,7 @@
 
     $mysqli = connectionDB();
 
-    $user = getUser($mysqli,$_GET["l"])[0];
+    $user = getUserById($mysqli,$_GET["id"])[0];
 
     $login = $user["login"];
 
@@ -23,6 +23,9 @@
 
     $avis = InfosAvisUser($mysqli,$id);
     
+    if (isset($_SESSION["id"])){
+        $privisession = getPriviByUserId($mysqli,$_SESSION["id"]);
+    }
     closeDB($mysqli);
 
 ?>
@@ -54,7 +57,12 @@
 
     profil($pdp,$name,$login,$privi,$date_creation,$date_last_login,$birthday,$email);
 
-    display_avis($avis);
+    if (isset($_SESSION["id"])){
+        display_avis($avis,$privisession,$_SESSION["id"]);
+    }
+    else{
+        display_avis($avis,'','');
+    }
 
 ?>
 </main>

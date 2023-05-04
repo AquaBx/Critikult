@@ -20,7 +20,12 @@
         $id_jeu = $_POST["id_jeu"];
         $id = $_SESSION["id"];
 
-        $createAvis = create_avis($mysqli,$commentaire,$note,$id,$id_jeu);
+        if (isset($_POST["new_avis"])){
+            $createAvis = create_avis($mysqli,$commentaire,$note,$id,$id_jeu);
+        }
+        elseif (isset($_POST["modif_avis"])){
+            $createAvis = modif_avis($mysqli,$commentaire,$note,$id,$id_jeu);
+        }
     }
     catch(Exception $e){
         $createAvis = 0;
