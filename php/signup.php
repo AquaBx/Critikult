@@ -21,6 +21,17 @@
         $firstname = $_POST["firstname"];
         $email     = $_POST["email"];
         $birthday  = $_POST["birthday"];
+
+        $age = ( time() - strtotime($birthday) )/60/60/24/365.25 ;
+
+
+
+        if ($age<15){
+            $_SESSION["form_msg"] = "Tu dois avoir 15 ans !";
+            $_SESSION["form_result"] = "error";
+            header("Location: " . $_SERVER["HTTP_REFERER"]);
+        }
+        
         $createUser = create_account($mysqli,$login,$password,$name,$firstname,$email,$birthday);
     }
     catch(Exception $e){
