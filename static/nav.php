@@ -36,11 +36,11 @@
             <ul class="hide">
 
                 <?php
-                if (isset($_SESSION["privilege"])){
-                    $log = $_SESSION["login"];
+                if (isset($_SESSION["id"])){
+                    $idlogin = $_SESSION["id"];
 
 
-                    echo "<li><a href='./profil.php?l=$log'>Profil</a></li>";
+                    echo "<li><a href='./profil.php?l=$idlogin'>Profil</a></li>";
                     echo "<li><a href='./modif_profil.php'>Paramètres</a></li>";
                     echo "<li><a href='./php/logout.php'>Déconnexion</a></li>";
                 }
