@@ -80,7 +80,7 @@
 
             if (isset($_SESSION["id"])){
                 if (isset($avis_user[0])){
-                    $contenu = $avis[0]["contenu"];
+                    $contenu = $avis_user[0]["contenu"];
                     $note = $avis_user[0]["note"];
                     $send = "modif_avis";
                 }
