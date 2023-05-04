@@ -112,7 +112,7 @@
 
                 echo "<label for='couverture'>Couverture</label>";
                 echo "<div>";
-                echo "<img width='100%' src='$img' >";
+                echo "<img width='100%' src='$img' alt='Jaquette du jeu'>";
                 echo "<input id='couverture' accept='image/*' name='couverture' type='file' accept='image/*'>";
                 echo "</div>";
                 echo "<label for='prix'>Prix du jeu</label>";
