@@ -86,13 +86,13 @@ function SupportJeu($mysqli,$id_jeu){
 }
 
 function InfosAvis($mysqli,$id_jeu){
-    $sql="SELECT *  FROM avis JOIN user on avis.id_user = user.id  WHERE id_jeu=?";
+    $sql="SELECT *  FROM avis JOIN user on avis.id_user = user.id  WHERE id_jeu=? ORDER BY date DESC";
     $list = [$id_jeu];
     return readPrepare($mysqli, $sql, $list );
 }
 
 function InfosAvisUser($mysqli,$id_user){
-    $sql="SELECT avis.*,user.id as id_user,article.id as id_art, article.titre as titre_art  FROM avis JOIN user on avis.id_user = user.id JOIN article ON article.id_jeu = avis.id_jeu WHERE id_user=?";
+    $sql="SELECT avis.*,user.id as id_user,article.id as id_art, article.titre as titre_art  FROM avis JOIN user on avis.id_user = user.id JOIN article ON article.id_jeu = avis.id_jeu WHERE id_user=? ORDER BY date DESC";
     $list = [$id_user];
     return readPrepare($mysqli, $sql, $list );
 }
