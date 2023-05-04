@@ -40,7 +40,7 @@ function liste_users($users){
         echo "<tr class='user'><form method='POST' action='./php/post_admin.php'>";
         $log = $user["login"];
         $id = $user["id"];
-        echo "<td><a href='./profil.php?l=$log'>$log</a><input type='hidden' name='id' value='$id'></td>";
+        echo "<td><a href='./profil.php?id=$id'>$log</a><input type='hidden' name='id' value='$id'></td>";
         echo "<td><input type='radio' $checked1 name='fonction' value='membre'></td>";
         echo "<td><input type='radio' $checked2 name='fonction' value='rédacteur'></td>";
         echo "<td><input type='radio' $checked3 name='fonction' value='administrateur'></td>";
