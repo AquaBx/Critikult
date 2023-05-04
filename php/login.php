@@ -26,7 +26,6 @@
     }
     elseif ($getuser[0]["password"] === $password) {
 
-        $_SESSION["login"] = $login;
         $_SESSION["id"] = $getuser[0]["id"];
         $_SESSION["privilege"] = $getuser[0]["privilege"];
 

@@ -14,6 +14,14 @@
 
     $id_jeu = $article["id_jeu"];
 
+
+
+    if (isset($_SESSION["id"])){
+        $avis_user = getAvisByUser($mysqli,$_SESSION["id"],$id_jeu);
+        $privi = getPriviByUserId($mysqli,$_SESSION["id"]);
+    }
+
+
     $redac = getUserByID( $mysqli, $article["id_redacteur"] )[0];
     $avis = InfosAvis($mysqli,$id_jeu );
     $illus = getIllustrationByJeu($mysqli,$id_jeu);
@@ -59,17 +67,28 @@
             echo "<h1>Vos avis</h1>";
 
             if (isset($_SESSION["id"])){
+                if (isset($avis_user[0])){
+                    $contenu = $avis[0]["contenu"];
+                    $note = $avis_user[0]["note"];
+                    $send = "modif_avis";
+                }
+                else{
+                    $contenu = NULL;
+                    $note = NULL;
+                    $send = "new_avis";
+                }
+
                 echo "<form action='./php/post_avis.php' method='post'>";
 
                 echo "<input type='hidden' name='id_jeu' value='$id_jeu'>";
 
                 echo "<label for='corps'>Corps de l'avis</label>";
-                echo "<textarea style='resize:vertical;' id='corps' name='commentaire' required></textarea>";
+                echo "<textarea style='resize:vertical;' id='corps' name='commentaire' required>$contenu</textarea>";
 
                 echo "<label for='note'>Note attribué au jeu</label>";
-                echo "<input type='number' name='note' id='note' min=0 max=10 required/>";
+                echo "<input type='number' value='$note' name='note' id='note' min=0 max=10 required/>";
                 
-                echo "<input type='submit' name='avis'/>";
+                echo "<input type='submit' name='$send'/>";
 
                 echo "</form>";
             }
@@ -77,7 +96,13 @@
             echo "<br>";
             star_note($avg[0]["avg_avis"]);
 
-            display_avis($avis)
+
+            if (isset($_SESSION["id"])){
+                display_avis($avis,$privi,$_SESSION["id"]);
+            }
+            else{
+                display_avis($avis,'','');
+            }
 
             ?>
         </article>
