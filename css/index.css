@@ -321,7 +321,7 @@ th, td {
 }
 
 .opinion .grid {
-    overflow: auto;
+
     display: grid;
     grid-template-columns: 1fr 12em;
     gap: 1rem;
@@ -337,6 +337,7 @@ th, td {
 }
 
 .opinion{
+    overflow: auto;
     position: relative;
 
 }
