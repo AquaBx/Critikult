@@ -37,7 +37,7 @@
         header("Location: ../index.php");
     }
     else{
-        $_SESSION["form_msg"] = "mot de passe incorect";
+        $_SESSION["form_msg"] = "Mot de passe incorect";
         $_SESSION["form_result"] = "error";
         header("Location: " . $_SERVER["HTTP_REFERER"]);
     }

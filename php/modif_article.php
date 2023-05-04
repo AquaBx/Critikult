@@ -27,7 +27,7 @@
     }
 
     if ($update_article == 1) {
-        $_SESSION["form_msg"] = "Votre jeu a bien été modifié";
+        $_SESSION["form_msg"] = "Votre article a bien été modifié";
         $_SESSION["form_result"] = "success";
     }
     else{
