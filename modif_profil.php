@@ -82,7 +82,7 @@
 
                 echo "<label for='pdp'>Photo de profil</label>";
                 echo "<div>";
-                echo "<img width='100%' src='$img' >";
+                echo "<img width='100%' src='$img' alt='photo de profil'>";
                 echo "<input id='pdp' accept='image/*' name='pdp' type='file' accept='image/*'>";
                 echo "</div>";
                 ?>

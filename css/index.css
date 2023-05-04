@@ -260,6 +260,11 @@ span.supcat {
     background-color: var(--secondary);
 }
 
+p.texte_centre{
+    text-align: center;
+    color: var(--text);
+}
+
 .navpages {
     display: flex;
     justify-content: center;

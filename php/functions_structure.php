@@ -1,26 +1,31 @@
 <?php
 
 function display_articles($articles){
-    echo "<div class='articles'>";
-    $i=0;
-    foreach ($articles as $article){
+    if (count($articles)==0){
+        echo "<p class='texte_centre'>Aucun article !</p>";
+    }
+    else{
+        echo "<div class='articles'>";
+        $i=0;
+        foreach ($articles as $article){
         
-        $id = $article["id"];
-        echo "<div style='--i:$i;' class='article'>";
-
-        $img = 'data:image;base64,' . base64_encode( $article["couverture"] ) ;
-
-            echo "<img src='$img'>";
-
-            echo "<a  href='article.php?id=$id' class='slide'>";
-            echo "<h2>" . $article["jeu"] . "</h2>";
-            echo "<p class='accroche'>" . $article["titre"] . "</p>";
-            echo "<p class='date'>" . $article["date_creation"] . "</p>";
-            echo "</a>";
+            $id = $article["id"];
+            echo "<div style='--i:$i;' class='article'>";
+    
+            $img = 'data:image;base64,' . base64_encode( $article["couverture"] ) ;
+    
+                echo "<img src='$img' alt='Couverture de l article '>";
+    
+                echo "<a  href='article.php?id=$id' class='slide'>";
+                echo "<h2>" . $article["jeu"] . "</h2>";
+                echo "<p class='accroche'>" . $article["titre"] . "</p>";
+                echo "<p class='date'>" . $article["date_creation"] . "</p>";
+                echo "</a>";
+            echo "</div>";
+            $i++ ;
+        }
         echo "</div>";
-        $i++ ;
-    } 
-    echo "</div>";
+    }
 }
 
 function liste_users($users){
@@ -54,7 +59,7 @@ function liste_illus($illus){
     echo "<div style='display:grid;grid-template-columns: repeat(2, 1fr);gap:1em;margin:2em 0;'>";
     foreach ($illus as $illu){
         $data = base64_encode($illu["data"]);
-        echo "<img width='100%' src='data:image;base64,$data'>";
+        echo "<img width='100%' src='data:image;base64,$data' alt='Image d illustration du jeu'>";
     }
     echo "</div>";
 }
@@ -115,7 +120,7 @@ function display_article($article,$categories,$supports){
     echo "<h1 style='text-align:center'>$titre</h1>";
     echo "<div class='article_head' style='position:relative'>";
     $img = 'data:image;base64,' . base64_encode( $couv ) ;
-    echo "<img style='object-fit:cover;height:100%;width:100%;position:relative;'  src='$img' >" ;
+    echo "<img style='object-fit:cover;height:100%;width:100%;position:relative;'  src='$img' alt='Jaquette du jeu'>" ;
 
     echo "<div>";
   
@@ -211,7 +216,7 @@ function opinion($avi,$role,$user){
         $img = './images/blank_pdp.webp';
     }
 
-    echo "<img style='width:6em; border-radius:360em;' src='$img'>";
+    echo "<img style='width:6em; border-radius:360em;' src='$img' alt='photo de profil de l utilisateur'>";
     echo "<h2><a href='./profil.php?id=$id'>$name</a></h2>";
     star_note($note);
             
@@ -249,7 +254,7 @@ function redac_opinion($avi,$redac){
         $img = './images/blank_pdp.webp';
     }
 
-    echo "<img style='width:6em; border-radius:360em;' src='$img'>";
+    echo "<img style='width:6em; border-radius:360em;' src='$img' alt='photo de profil utilisateur'>";
     echo "<h2><a href='./profil.php?l=$login'>$name</a></h2>";
     star_note($note);
             
@@ -281,7 +286,7 @@ function profil($pdp,$name,$login,$status,$datecrea,$datemodif,$birthday,$email)
         $img = './images/blank_pdp.webp';
     }
     
-    echo "<img style='width:6em; border-radius:360em;' src='$img' >";
+    echo "<img style='width:6em; border-radius:360em;' src='$img' alt='photo de profil utilisateur'>";
     echo "<h2>$name ";
 
     if ($status === "administrateur"){
@@ -322,10 +327,16 @@ function profil($pdp,$name,$login,$status,$datecrea,$datemodif,$birthday,$email)
 
 function display_avis($avis,$role,$user){
     echo "<div class='avislist'>";
-    foreach ($avis as $avi){
-        opinion($avi,$role,$user);
+    if (count($avis)==0){
+        echo "<p class='texte_centre'>Aucun avis n'a été rédigé pour le moment !</p>";
+    }
+    else{
+        foreach ($avis as $avi){
+            opinion($avi,$role,$user);
+        }
     }
     echo "</div>";
+
 }
 
 function cleanify_jeu_cat($list){
