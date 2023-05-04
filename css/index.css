@@ -54,8 +54,8 @@ navbar{
     z-index: 50;
     position: sticky;
     top:0;
-    width:calc(100% - 2em);
-    padding:1em;
+    width:calc(100% - 2rem);
+    padding:1rem;
     border-bottom: 1px solid var(--secondary);
 }
 
@@ -77,27 +77,27 @@ a[href] {
 navbar > div.icons{
 
     display: flex;
-    gap: 2em;
+    gap: 2rem;
     align-items: center;
 
 }
 
 navbar h1{
-    font-size: 2.5em;
+    font-size: 2.5rem;
     margin:0;
 }
 
 .page{
     margin: 0;
-    padding: 0.2em 0 1em;
+    padding: 0.2rem 0 1rem;
 }
 
 main{
-    padding:1em;
+    padding:1rem;
 }
 
 main:not(.accueil){
-    width:clamp(0px, calc(100% - 2em) ,50rem);
+    width:clamp(0px, calc(100% - 2rem) ,50rem);
 
     margin: auto;
 }
@@ -165,10 +165,10 @@ input[type="checkbox"],input[type="radio"]{
 }
 
 @keyframes modalappear {
-    from {transform: translateX(calc(100% + 1em));}
+    from {transform: translateX(calc(100% + 1rem));}
     20% {transform: translateX(0px);}
     80% {transform: translateX(0px);}
-    to {transform: translateX(calc(100% + 1em));}
+    to {transform: translateX(calc(100% + 1rem));}
 }
 
 .modal{
@@ -197,7 +197,7 @@ input[type="checkbox"],input[type="radio"]{
 
 
 @keyframes gameappear {
-    from {transform: translateY(-1.5em);opacity: 0;}
+    from {transform: translateY(-1.5rem);opacity: 0;}
     to {transform: translateY(0px);opacity: 1;}
 }
 
@@ -210,7 +210,7 @@ input[type="checkbox"],input[type="radio"]{
 }
 
 .articles .article {
-    transform:translateY(-1.5em);
+    transform:translateY(-1.5rem);
     opacity: 0;
     animation: gameappear 1s forwards calc(var(--i) * 0.1s) ;
     text-decoration: none;
@@ -227,17 +227,19 @@ input[type="checkbox"],input[type="radio"]{
 
 .articles .article .slide{
     position: absolute;
-    bottom: calc(-100% + 3.75em);
+    transform: translateY(calc(100% - 3.75rem));
     left: 0;
     background-color: var(--secondary-t);
     transition: 0.5s;
-    height: calc(100% - 2em);
-    width: calc(100% - 2em);
+    height: calc(100% - 2rem);
+    width: calc(100% - 2rem);
     padding:1em;
+    bottom:0;
 }
 
 .articles .article:hover .slide{
-    bottom:0;
+    transform: translateY(0);
+
 }
 
 .articles .article img{
@@ -266,14 +268,19 @@ article > p {
     gap:1em;
     display: grid;
     width: 100%;
-    grid-template-columns: 20em 1fr;
+    grid-template-columns: 20rem 1fr;
 }
 
 .article_head > img { 
     border-radius: 1rem;
 }
     
-
+.moyenne_avis{
+    display: grid;
+    font-size: 1.5rem;
+    grid-template-columns: 1fr 12rem;
+    margin : 0 1em 2em 0;
+}
 
 @keyframes article_appear {
     from {opacity: 0 ;}
@@ -292,18 +299,18 @@ table {
 
 th, td {
     border: 1px solid var(--text-reversed);
-    padding:  0.5em 1em;
+    padding:  0.5rem 1em;
     text-align: center;
 }
 
 .opinion .grid {
     overflow: auto;
     display: grid;
-    grid-template-columns: 6em 2fr 12em;
-    gap: 1em 2em;
+    grid-template-columns: 6rem 2fr 12em;
+    gap: 1rem 2rem;
     background-color: var(--secondary);
     align-items: center;
-    padding:1em;
+    padding:1rem;
     border-radius: 1rem;
 }
 
@@ -335,7 +342,7 @@ th, td {
     margin: 0 auto;
     display: grid;
     
-    gap: 1em;
+    gap: 1rem;
     position: relative;
 }
 
@@ -348,11 +355,11 @@ img {
 .profil {
 
     background-color: var(--secondary);
-    padding:1em;
+    padding:1rem;
     border-radius: 1rem;
     display:flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1rem;
 }
 
 .profil > *{
@@ -372,7 +379,7 @@ img {
     font-size: 1rem;
     font-weight: 400;
     border: 1px solid var(--text);
-    padding:0.2em;
+    padding:0.2rem;
 }
 
 .fa-solid, .fa-regular {
@@ -395,6 +402,6 @@ img {
 
 a.trash {
     position: absolute;
-    top: 0.7em;
-    right: 0.7em;
+    top: 0.7rem;
+    right: 0.7rem;
 }

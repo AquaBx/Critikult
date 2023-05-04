@@ -6,6 +6,11 @@
     include("./php/functions_query.php");
     include("./php/functions_structure.php");
 
+    if ( ! isset($_GET["id"])){
+        header("Location: index.php");
+        exit();
+    }
+
     $mysqli=connectionDB();
 
     $id_art = $_GET["id"];
@@ -94,8 +99,11 @@
             }
 
             echo "<br>";
-            star_note($avg[0]["avg_avis"]);
 
+            echo "<div class='moyenne_avis'>";
+            echo "<span>Note moyenne</span>";
+            star_note($avg[0]["avg_avis"]);
+            echo "</div>";
 
             if (isset($_SESSION["id"])){
                 display_avis($avis,$privi,$_SESSION["id"]);

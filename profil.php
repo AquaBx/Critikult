@@ -6,6 +6,12 @@
     include("./php/functions_query.php");
     include("./php/functions_structure.php");
 
+    if ( ! isset($_GET["id"])){
+        header("Location: index.php");
+        exit();
+    }
+
+
     $mysqli = connectionDB();
 
     $user = getUserById($mysqli,$_GET["id"])[0];
