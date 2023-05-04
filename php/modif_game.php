@@ -58,9 +58,15 @@
         
         try{
             $id_jeu = $_POST["id"];
-            $categories = $_POST["categorie"];
 
-            $updategame = insert_categorie($mysqli,$id_jeu,$categories);
+            if (isset($_POST["categorie"])){
+                $categories = $_POST["categorie"];
+                $updategame = insert_categorie($mysqli,$id_jeu,$categories);
+            }
+            else{
+                $categories = [];
+            }
+            
             $updategame = delete_categorie($mysqli,$id_jeu,$categories);
             
         }
@@ -71,6 +77,7 @@
     elseif (isset($_POST["supports"])){ 
 
         try{
+            print_r($_POST);
             $id_jeu = $_POST["id"];
             $supports = $_POST["support"];
 
