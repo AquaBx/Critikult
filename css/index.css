@@ -9,7 +9,7 @@
 :root{
     --main:hsl(222, 25%, 90%);
     --secondary:hsl(216, 17%, 94%);
-    --secondary-t:hsla(216, 17%, 94%, 0.7);
+    --secondary-t:hsla(216, 17%, 94%, 0.9);
     --action:hsl(192, 67%, 30%);
     --special:rgb(0, 165, 207);
     --success:rgb(59, 245, 34);
@@ -23,7 +23,7 @@
     :root{
         --main:rgb(19, 23, 32);
         --secondary:rgb(12, 14, 17);
-        --secondary-t:rgb(12, 14, 17,0.7);
+        --secondary-t:rgb(12, 14, 17,0.9);
         --action:hsl(192, 67%, 73%);
         --special:rgb(0, 165, 207);
         --success:rgb(59, 245, 34);
