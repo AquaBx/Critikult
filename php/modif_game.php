@@ -58,11 +58,15 @@
         
         try{
             $id_jeu = $_POST["id"];
-            $categories = $_POST["categorie"];
-
-            $updategame = insert_categorie($mysqli,$id_jeu,$categories);
-            $updategame = delete_categorie($mysqli,$id_jeu,$categories);
             
+            if (isset($_POST["categorie"])){
+                $categories = $_POST["categorie"];
+                $updategame = insert_categorie($mysqli,$id_jeu,$categories);
+                $updategame = delete_categorie($mysqli,$id_jeu,$categories);
+            }
+            else{
+                $updategame = delete_categorie($mysqli,$id_jeu);
+            }
         }
         catch(Exception $e){
             $updategame = 0;
