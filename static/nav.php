@@ -12,7 +12,7 @@
         <?php if (isset($_SESSION["privilege"]) ) { if ( $_SESSION["privilege"]==="rédacteur" || $_SESSION["privilege"]==="administrateur"){ ?>
         
         <div tabindex="-1" class="dropbox">
-            <a href='#'><i class='fa-solid fa-toolbox'></i></a>
+            <a class='btn'><i class='fa-solid fa-toolbox'></i></a>
             <ul class="hide">
 
                 <?php
@@ -32,7 +32,7 @@
         <?php }} ?>
 
         <div tabindex="-1" class="dropbox">
-            <a href='#'><i class="fa-regular fa-circle-user"></i></a>
+            <a class='btn'><i class="fa-regular fa-circle-user"></i></a>
             <ul class="hide">
 
                 <?php

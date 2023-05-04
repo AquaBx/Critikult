@@ -66,11 +66,12 @@ a {
     text-decoration: none;
 }
 
-a[href]:hover {
+a[href]:hover,a.btn:hover {
     color:var(--action);
 }
 
-a[href] {
+a[href],a.btn {
+    cursor: pointer;
     color:var(--special);
 }
 
