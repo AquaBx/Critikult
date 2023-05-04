@@ -15,7 +15,14 @@
 
     $id_art = $_GET["id"];
 
-    $article = InfosArticle($mysqli,$id_art )[0];
+    $article = InfosArticle($mysqli,$id_art );
+
+    if ( ! isset($article[0])){
+        header("Location: index.php");
+        exit();
+    }
+
+    $article=$article[0];
 
     $id_jeu = $article["id_jeu"];
 

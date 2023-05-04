@@ -14,7 +14,14 @@
 
     $mysqli = connectionDB();
 
-    $user = getUserById($mysqli,$_GET["id"])[0];
+    $user = getUserById($mysqli,$_GET["id"]);
+
+    if ( ! isset($user[0])){
+        header("Location: index.php");
+        exit();
+    }
+
+    $user=$user[0];
 
     $login = $user["login"];
 
