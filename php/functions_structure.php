@@ -240,6 +240,7 @@ function redac_opinion($avi,$redac){
     $login = $redac['login'];
         
     echo "<div class='opinion'>";
+    echo "<div class='grid'>";
 
     if ($pdp){
         $img = 'data:image;base64,' . base64_encode( $pdp ) ;
@@ -264,6 +265,7 @@ function redac_opinion($avi,$redac){
 
     echo '</a>';
             
+    echo "</div>";
 
     echo "</div>";
 }
