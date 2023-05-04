@@ -196,11 +196,12 @@ function profil_opinion($avi,$role,$user){
     $datecrea = $avi['date'];
     $contenu = $avi['contenu'];
     $id = $avi['id_art'];
+    $id_user = $avi['id_user'];
     $id_jeu = $avi['id_jeu'];
 
     echo "<div class='opinion'>";
 
-    if ($role == 'administrateur' || $user==$id ){
+    if ($role == 'administrateur' || $user==$id_user ){
         echo "<a class='trash' href='./php/delete_avis.php?id=$id&id_jeu=$id_jeu'><i class='fa-regular fa-trash-can'></i></a>";
     }
 
