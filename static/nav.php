@@ -40,7 +40,7 @@
                     $idlogin = $_SESSION["id"];
 
 
-                    echo "<li><a href='./profil.php?l=$idlogin'>Profil</a></li>";
+                    echo "<li><a href='./profil.php?id=$idlogin'>Profil</a></li>";
                     echo "<li><a href='./modif_profil.php'>Paramètres</a></li>";
                     echo "<li><a href='./php/logout.php'>Déconnexion</a></li>";
                 }
