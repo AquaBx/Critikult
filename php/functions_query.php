@@ -261,20 +261,32 @@ function delete_avis($mysqli,$id_jeu,$id){
     return writePrepare($mysqli, $sql,$list);
 }
 
-function delete_support($mysqli,$id_jeu,$supports){
+function delete_support($mysqli,$id_jeu,$supports=""){
+    if ($supports){
+        $query = implode (",", array_fill(0,count($supports),"?") );
+        $sql = "DELETE FROM est_supporte WHERE id_jeu=? AND id_support NOT IN ($query)";
+        $list = array_merge ( [$id_jeu] , $supports ) ;
+    }
+    else{
+        $sql = "DELETE FROM est_supporte WHERE id_jeu=?";
+        $list = [$id_jeu];
+    }
 
-    $query = implode (",", array_fill(0,count($supports),"?") );
-    $sql = "DELETE FROM est_supporte WHERE id_jeu=? AND id_support NOT IN ($query)";
-    $list = array_merge ( [$id_jeu] , $supports ) ;
 
     return writePrepare($mysqli, $sql,$list);
 }
 
-function delete_categorie($mysqli,$id_jeu,$categories){
-
-    $query = implode (",", array_fill(0,count($categories),"?") );
-    $sql = "DELETE FROM est_categorise WHERE id_jeu=? AND id_categorie NOT IN ($query)";
-    $list = array_merge ( [$id_jeu] , $categories ) ;
+function delete_categorie($mysqli,$id_jeu,$categories=""){
+    if ($categories){
+        $query = implode (",", array_fill(0,count($categories),"?") );
+        $sql = "DELETE FROM est_categorise WHERE id_jeu=? AND id_categorie NOT IN ($query)";
+        $list = array_merge ( [$id_jeu] , $categories ) ;
+    }
+    else{
+        $sql = "DELETE FROM est_categorise WHERE id_jeu=?";
+        $list = [$id_jeu] ;
+    }
+    
 
     return writePrepare($mysqli, $sql,$list);
 }

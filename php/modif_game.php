@@ -72,11 +72,16 @@
 
         try{
             $id_jeu = $_POST["id"];
-            $supports = $_POST["support"];
 
-            $updategame = insert_support($mysqli,$id_jeu,$supports);
-            $updategame = delete_support($mysqli,$id_jeu,$supports);
-
+            if (isset($_POST["support"])){
+                $supports = $_POST["support"];
+                $updategame = insert_support($mysqli,$id_jeu,$supports);
+                $updategame = delete_support($mysqli,$id_jeu,$supports);
+            }
+            else{
+                $updategame = delete_support($mysqli,$id_jeu);
+            }
+            
         }
         catch(Exception $e){
             $updategame = 0;
