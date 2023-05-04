@@ -283,6 +283,7 @@ article > p {
     display: grid;
     width: 100%;
     grid-template-columns: 20rem 1fr;
+    overflow-x: auto;
 }
 
 .article_head > img { 
