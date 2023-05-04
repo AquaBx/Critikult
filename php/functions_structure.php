@@ -237,7 +237,7 @@ function redac_opinion($avi,$redac){
     $note = $avi['note'];
     $datecrea = $avi['date_creation'];
     $datemodif = $avi['date_modification'];
-    $login = $redac['login'];
+    $id = $redac['id'];
         
     echo "<div class='opinion'>";
     echo "<div class='grid'>";
@@ -250,7 +250,7 @@ function redac_opinion($avi,$redac){
     }
 
     echo "<img style='width:6em; border-radius:360em;' src='$img'>";
-    echo "<h2><a href='./profil.php?l=$login'>$name</a></h2>";
+    echo "<h2><a href='./profil.php?id=$id'>$name</a></h2>";
     star_note($note);
             
 

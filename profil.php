@@ -35,7 +35,8 @@
     $email = $user['email'] ;
 
     $avis = InfosAvisUser($mysqli,$id);
-    
+    $articles = ProfilArticles($mysqli,$id);
+
     if (isset($_SESSION["id"])){
         $privisession = getPriviByUserId($mysqli,$_SESSION["id"]);
     }
@@ -70,6 +71,8 @@
 
     profil($pdp,$name,$login,$privi,$date_creation,$date_last_login,$birthday,$email);
 
+    echo "<h2>Avis</h2>";
+
     if (isset($_SESSION["id"])){
         display_avis($avis,$privisession,$_SESSION["id"]);
     }
@@ -77,6 +80,9 @@
         display_avis($avis,'','');
     }
 
+    echo "<h2>Articles</h2>";
+
+    display_articles($articles);
 ?>
 </main>
 </body>

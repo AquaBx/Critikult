@@ -20,6 +20,22 @@ function MenuArticles($mysqli,$nombres,$offset,$categorie,$name){
     return readPrepare($mysqli, $sql, $list  );
 }
 
+function ProfilArticles($mysqli,$id_redac){
+
+    $sql = "SELECT DISTINCT article.id, jeu.nom as jeu,article.titre,article.date_creation,jeu.couverture FROM jeu 
+    JOIN article ON jeu.id = article.id_jeu 
+
+    JOIN est_categorise ON jeu.id = est_categorise.id_jeu 
+    JOIN categorie ON est_categorise.id_categorie = categorie.id_categorie
+
+    WHERE id_redacteur=?
+    ORDER BY article.date_creation DESC;
+    ";
+
+    $list = [$id_redac];
+    return readPrepare($mysqli, $sql, $list  );
+}
+
 function countArticles($mysqli,$categorie,$name){
 
     $sql = "SELECT count(*) as nb FROM ( 
