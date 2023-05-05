@@ -78,7 +78,7 @@
                 echo "<input id='login' name='login' value=\"$login\" required>";
 
                 echo "<label for='email'>Email</label>";
-                echo "<input id='email' name='email' value=\"$email\" required>";
+                echo "<input id='email' type='email' name='email' value=\"$email\" required>";
 
                 echo "<label for='pdp'>Photo de profil</label>";
                 echo "<div>";
