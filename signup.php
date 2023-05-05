@@ -57,7 +57,7 @@
                     <input id="firstname" name="firstname" required>
 
                     <label for="email">Email</label>
-                    <input id="email" name="email" required>
+                    <input type='email' id="email" name="email" required>
 
                     <label for="birthday">Date de naissance</label>
                     <input id="birthday" name="birthday" type="date" required>
